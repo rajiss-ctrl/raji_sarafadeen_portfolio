@@ -4,11 +4,13 @@ import { Query } from 'appwrite';
 import CommentSection from '@/app/components/blog/CommentSection';
 import Image from 'next/image';
 
-export default async function BlogPost({
-  params,
-}: {
-  params: { slug: string };
-}) {
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+export default async function BlogPost({ params }: Props) {
   const slug = params.slug;
 
   try {

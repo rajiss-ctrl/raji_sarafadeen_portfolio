@@ -220,26 +220,6 @@ export default function CommentSection({ blogId, initialComments }: CommentSecti
                 </svg>
                 </button>
 
-
-
-
-
-
-
-                {/* <button
-                  onClick={() => handleLike(comment.$id, true)}
-                  className={`p-1 rounded ${comment.like === true ? 'text-blue-500' : 'text-gray-400'}`}
-                  disabled={loading}
-                >
-                  👍
-                </button>
-                <button
-                  onClick={() => handleLike(comment.$id, false)}
-                  className={`p-1 rounded ${comment.like === false ? 'text-red-500' : 'text-gray-400'}`}
-                  disabled={loading}
-                >
-                  👎
-                </button> */}
               </div>
             </div>
           </div>
