@@ -3,17 +3,14 @@ import { databases } from '@/app/lib/appwrite';
 import { Query } from 'appwrite';
 import CommentSection from '@/app/components/blog/CommentSection';
 import Image from 'next/image';
-import type { Metadata, ResolvingMetadata } from 'next';
+import type { Metadata } from 'next';
 
-type Props = {
+interface PageProps {
   params: { slug: string };
   searchParams: { [key: string]: string | string[] | undefined };
-};
+}
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   try {
     const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!;
     const blogsCollectionId = process.env.NEXT_PUBLIC_APPWRITE_BLOGS_COLLECTION_ID!;
@@ -21,19 +18,24 @@ export async function generateMetadata(
     const blog = await databases.getDocument(dbId, blogsCollectionId, params.slug);
     
     return {
-      title: blog.title || (await parent).title?.absolute || 'Blog Post',
-      description:blog.title,
-      openGraph: { images: [blog.image] }
+      title: `${blog.title} | Your Blog Name`,
+      description: blog.description || 'A blog post',
+      openGraph: {
+        title: blog.title,
+        description: blog.description || 'A blog post',
+        images: blog.image ? [{ url: blog.image }] : [],
+      },
     };
   } catch (error) {
     console.log(error)
     return {
       title: 'Blog Post',
+      description: 'A blog post',
     };
   }
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({ params }: PageProps) {
   const slug = params.slug;
 
   try {
