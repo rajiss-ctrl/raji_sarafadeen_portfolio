@@ -61,7 +61,7 @@ function SidebarContent() {
     <>
       <Link href={'/'} className="mt-10 flex flex-col items-center bg-[#565b70] w-[160px] h-[160px] rounded-[50%]">
         {/* <BsPersonBadgeFill className="text-3xl mb-2" /> */}
-        <Image src='/raji_sarafadeen_logo-removebg-preview.png' width={200} height={200} alt="Raji Sarafadeen, Web Dev" className='rounded-[50%]'/> 
+        <Image src='/raji_sarafadeen.png' width={200} height={200} alt="Raji Sarafadeen, Web Dev" className='rounded-[50%]'/> 
       </Link>
 
       <div className="w-full h-[0.8px] bg-gray-700  mt-5"></div>

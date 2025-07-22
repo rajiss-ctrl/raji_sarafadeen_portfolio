@@ -3,16 +3,17 @@ import { databases } from '@/app/lib/appwrite';
 import { Query } from 'appwrite';
 import CommentSection from '@/app/components/blog/CommentSection';
 import Image from 'next/image';
-import type { Metadata } from 'next';
+import type { Metadata, ResolvingMetadata } from 'next';
 
-// Correct the Props type to match Next.js expectations
-interface Props {
-  params: {
-    slug: string;
-  };
-}
+type Props = {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   try {
     const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!;
     const blogsCollectionId = process.env.NEXT_PUBLIC_APPWRITE_BLOGS_COLLECTION_ID!;
@@ -20,19 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const blog = await databases.getDocument(dbId, blogsCollectionId, params.slug);
     
     return {
-      title: blog.title,
+      title: blog.title || (await parent).title?.absolute || 'Blog Post',
       description:blog.title,
-      openGraph: {
-        // type: "website",
-        // url: "https://example.com",
-        // title: "My Website",
-        // description: "My Website Description",
-        // siteName: "My Website",
-        images: [{ url: blog.image}]
-      }
-      // You can add more metadata here if needed
-      // description: blog.excerpt,
-      // openGraph: { images: [blog.image] },
+      openGraph: { images: [blog.image] }
     };
   } catch (error) {
     console.log(error)
@@ -42,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function BlogPost({ params }: Props) {
+export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug;
 
   try {
@@ -92,10 +83,13 @@ export default async function BlogPost({ params }: Props) {
                   src={blog.image}
                   alt={blog.title}
                   className="w-full h-full object-cover"
+                  priority
                 />
               </div>
             )}
 
+            <h1 className="text-3xl font-bold mb-6">{blog.title}</h1>
+            
             <div
               className="prose prose-invert max-w-none leading-relaxed tracking-wide"
               dangerouslySetInnerHTML={{ __html: blog.content }}
