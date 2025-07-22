@@ -3,12 +3,44 @@ import { databases } from '@/app/lib/appwrite';
 import { Query } from 'appwrite';
 import CommentSection from '@/app/components/blog/CommentSection';
 import Image from 'next/image';
+import type { Metadata } from 'next';
 
-type Props = {
+// Correct the Props type to match Next.js expectations
+interface Props {
   params: {
     slug: string;
   };
-};
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  try {
+    const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!;
+    const blogsCollectionId = process.env.NEXT_PUBLIC_APPWRITE_BLOGS_COLLECTION_ID!;
+    
+    const blog = await databases.getDocument(dbId, blogsCollectionId, params.slug);
+    
+    return {
+      title: blog.title,
+      description:blog.title,
+      openGraph: {
+        // type: "website",
+        // url: "https://example.com",
+        // title: "My Website",
+        // description: "My Website Description",
+        // siteName: "My Website",
+        images: [{ url: blog.image}]
+      }
+      // You can add more metadata here if needed
+      // description: blog.excerpt,
+      // openGraph: { images: [blog.image] },
+    };
+  } catch (error) {
+    console.log(error)
+    return {
+      title: 'Blog Post',
+    };
+  }
+}
 
 export default async function BlogPost({ params }: Props) {
   const slug = params.slug;

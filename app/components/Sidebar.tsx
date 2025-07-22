@@ -6,6 +6,7 @@ import NavLink from "./NavLink"
 import { motion, AnimatePresence } from 'framer-motion'
 import { IoMdMenu, IoMdClose } from 'react-icons/io'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -58,10 +59,10 @@ export default Sidebar
 function SidebarContent() {
   return (
     <>
-      <div className="mt-10 flex flex-col items-center bg-[#565b70] w-[160px] h-[160px] rounded-[50%]">
+      <Link href={'/'} className="mt-10 flex flex-col items-center bg-[#565b70] w-[160px] h-[160px] rounded-[50%]">
         {/* <BsPersonBadgeFill className="text-3xl mb-2" /> */}
-        <Image src='/raji_sarafadeen_logo.png' width={200} height={200} alt="Raji Sarafadeen, Web Dev" className='rounded-[50%]'/> 
-      </div>
+        <Image src='/raji_sarafadeen_logo-removebg-preview.png' width={200} height={200} alt="Raji Sarafadeen, Web Dev" className='rounded-[50%]'/> 
+      </Link>
 
       <div className="w-full h-[0.8px] bg-gray-700  mt-5"></div>
       <div className="w-full flex flex-col text-center text-[#86a4c4] lg:px-1">
