@@ -10,15 +10,16 @@ const client = new Client()
   .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
   .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!);
 
-type Comment = {
+// In CommentSection.tsx
+interface Comment {
   $id: string;
   content: string;
-  userId: string;
+  userId: string; // Same as above
   authorName: string;
   $createdAt: string;
   like?: boolean;
   blogId?: string;
-};
+}
 
 type CommentSectionProps = {
   blogId: string;
