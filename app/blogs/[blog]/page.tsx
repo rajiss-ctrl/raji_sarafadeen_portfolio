@@ -1,63 +1,89 @@
 import { notFound } from 'next/navigation';
 import { databases } from '@/app/lib/appwrite';
-import { Query, type Models } from 'appwrite';
+import { Query } from 'appwrite';
 import CommentSection from '@/app/components/blog/CommentSection';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 
 // 1. Define strict types
-interface BlogPost extends Models.Document {
+interface BlogPost {
+  $id: string;
   title: string;
   content: string;
+  $createdAt: string;
   image?: string;
 }
 
-// In page.tsx
 interface Comment {
   $id: string;
   content: string;
-  userId: string; // Must include this
+  userId: string;
   authorName: string;
   $createdAt: string;
   like?: boolean;
   blogId: string;
 }
 
+// 2. Enable ISR - Revalidate every hour
+export const revalidate = 3600;
 
-
-// 2. Generate metadata (runs in parallel with page)
+// 3. Generate metadata with proper params handling
 export async function generateMetadata({
   params,
 }: {
   params: { blog: string };
 }): Promise<Metadata> {
-  const blog = await getBlogPost(params.blog);
+  // Await the params to ensure they're resolved
+  const { blog } = await Promise.resolve(params);
+  
+  try {
+    const blogPost = await getBlogPost(blog);
+    return {
+      title: `${blogPost.title} | My Blog`,
+      description: blogPost.content.slice(0, 160),
+      openGraph: {
+        title: blogPost.title,
+        description: blogPost.content.slice(0, 160),
+        images: blogPost.image ? [{ url: blogPost.image }] : [],
+      },
+    };
+  } catch {
+    return {
+      title: 'Blog Post',
+      description: 'A blog post',
+    };
+  }
+}
+
+// 4. Data fetching functions
+async function getBlogPost(blogId: string): Promise<BlogPost> {
+  const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
+  const collectionId = process.env.NEXT_PUBLIC_APPWRITE_BLOGS_COLLECTION_ID;
+  
+  if (!dbId || !collectionId) {
+    throw new Error('Missing environment variables');
+  }
+
+  const doc = await databases.getDocument(dbId, collectionId, blogId);
+  if (!doc) throw new Error('Blog not found');
+  
   return {
-    title: `${blog.title} | My Blog`,
-    description: blog.content.slice(0, 160),
-    openGraph: {
-      title: blog.title,
-      images: blog.image ? [{ url: blog.image }] : [],
-    },
+    $id: doc.$id,
+    title: doc.title,
+    content: doc.content,
+    $createdAt: doc.$createdAt,
+    image: doc.image,
   };
 }
 
-// 3. Data fetching functions
-async function getBlogPost(blogId: string): Promise<BlogPost> {
-  const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!;
-  const collectionId = process.env.NEXT_PUBLIC_APPWRITE_BLOGS_COLLECTION_ID!;
-  
-  const doc = await databases.getDocument(dbId, collectionId, blogId);
-  if (!doc) throw new Error('Blog not found');
-  return doc as BlogPost;
-}
-
-
-
 async function getComments(blogId: string): Promise<Comment[]> {
-  const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID!;
-  const collectionId = process.env.NEXT_PUBLIC_APPWRITE_COMMENTS_COLLECTION_ID!;
+  const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
+  const collectionId = process.env.NEXT_PUBLIC_APPWRITE_COMMENTS_COLLECTION_ID;
   
+  if (!dbId || !collectionId) {
+    throw new Error('Missing environment variables');
+  }
+
   const res = await databases.listDocuments(dbId, collectionId, [
     Query.equal('blogId', blogId),
     Query.orderDesc('$createdAt'),
@@ -74,43 +100,60 @@ async function getComments(blogId: string): Promise<Comment[]> {
   }));
 }
 
-// 4. Page component
+// 5. Page component with proper params handling
 export default async function BlogPage({
   params,
 }: {
   params: { blog: string };
 }) {
+  // Await the params to ensure they're resolved
+  const { blog } = await Promise.resolve(params);
+
   try {
     // Fetch data in parallel
-    const [blog, comments] = await Promise.all([
-      getBlogPost(params.blog),
-      getComments(params.blog),
+    const [blogPost, comments] = await Promise.all([
+      getBlogPost(blog),
+      getComments(blog),
     ]);
+
+    // Structured data for SEO
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: blogPost.title,
+      datePublished: blogPost.$createdAt,
+      wordCount: blogPost.content.split(/\s+/).length,
+    };
 
     return (
       <div className="min-h-screen text-white py-12 px-4 md:pl-[19%]">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+
         <div className="max-w-4xl mx-auto">
           <article>
             <header className="mb-8">
-              <h1 className="text-3xl font-bold mb-2">{blog.title}</h1>
+              <h1 className="text-3xl font-bold mb-2">{blogPost.title}</h1>
               <div className="flex items-center text-sm text-gray-400">
-                <time dateTime={blog.$createdAt}>
-                  {new Date(blog.$createdAt).toLocaleDateString('en-US', {
+                <time dateTime={blogPost.$createdAt}>
+                  {new Date(blogPost.$createdAt).toLocaleDateString('en-US', {
                     year: 'numeric',
                     month: 'short',
                     day: 'numeric',
                   })}
                 </time>
                 <span className="mx-2">•</span>
-                <span>{Math.ceil(blog.content.length / 1000)} min read</span>
+                <span>{Math.ceil(blogPost.content.length / 1000)} min read</span>
               </div>
             </header>
 
-            {blog.image && (
+            {blogPost.image && (
               <div className="relative w-full h-64 md:h-96 mb-8">
                 <Image
-                  src={blog.image}
-                  alt={blog.title}
+                  src={blogPost.image}
+                  alt={blogPost.title}
                   fill
                   className="object-cover rounded-lg"
                   priority
@@ -121,16 +164,16 @@ export default async function BlogPage({
 
             <div
               className="prose prose-invert max-w-none"
-              dangerouslySetInnerHTML={{ __html: blog.content }}
+              dangerouslySetInnerHTML={{ __html: blogPost.content }}
             />
           </article>
 
-          <CommentSection blogId={params.blog} initialComments={comments} />
+          <CommentSection blogId={blog} initialComments={comments} />
         </div>
       </div>
     );
   } catch (error) {
-    console.log(error)
+    console.error('Error fetching blog post:', error);
     return notFound();
   }
 }

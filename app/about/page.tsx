@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 const page = () => {
   return (
-    <div className='relative w-full lg:pt-32 p-4 lg:pl-[19%] lg:py-0 text-white overflow-hidden'>
+    <div className='relative w-full lg:pt- p-4 lg:pl-[19%] text-white overflow-hidden'>
         {/* <div
         className={cn(
           "pointer-events-none absolute inset-0 [background-size:40px_40px] select-none",
