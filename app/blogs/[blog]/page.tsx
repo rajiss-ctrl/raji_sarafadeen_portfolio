@@ -28,14 +28,11 @@ interface Comment {
 export const revalidate = 3600;
 
 // 3. Generate metadata with proper params handling
-export async function generateMetadata({
-  params,
-}: {
-  params: { blog: string };
-}): Promise<Metadata> {
-  // Await the params to ensure they're resolved
-  const { blog } = await Promise.resolve(params);
-  
+export async function generateMetadata(
+  context: { params: { blog: string } }
+): Promise<Metadata> {
+  const { blog } = await Promise.resolve(context.params); // ✅ this is valid
+
   try {
     const blogPost = await getBlogPost(blog);
     return {
@@ -54,6 +51,7 @@ export async function generateMetadata({
     };
   }
 }
+
 
 // 4. Data fetching functions
 async function getBlogPost(blogId: string): Promise<BlogPost> {
