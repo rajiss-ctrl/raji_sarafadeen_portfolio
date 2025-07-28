@@ -24,14 +24,18 @@ interface Comment {
   blogId: string;
 }
 
+interface PageProps {
+  params: {
+    blog: string;
+  };
+}
+
 // 2. Enable ISR - Revalidate every hour
 export const revalidate = 3600;
 
-// 3. Generate metadata with proper params handling
-export async function generateMetadata(
-  context: { params: { blog: string } }
-): Promise<Metadata> {
-  const { blog } = await Promise.resolve(context.params); // ✅ this is valid
+// 3. Generate metadata
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const blog = (await Promise.resolve(params)).blog;
 
   try {
     const blogPost = await getBlogPost(blog);
@@ -52,19 +56,18 @@ export async function generateMetadata(
   }
 }
 
-
 // 4. Data fetching functions
 async function getBlogPost(blogId: string): Promise<BlogPost> {
   const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
   const collectionId = process.env.NEXT_PUBLIC_APPWRITE_BLOGS_COLLECTION_ID;
-  
+
   if (!dbId || !collectionId) {
     throw new Error('Missing environment variables');
   }
 
   const doc = await databases.getDocument(dbId, collectionId, blogId);
   if (!doc) throw new Error('Blog not found');
-  
+
   return {
     $id: doc.$id,
     title: doc.title,
@@ -77,7 +80,7 @@ async function getBlogPost(blogId: string): Promise<BlogPost> {
 async function getComments(blogId: string): Promise<Comment[]> {
   const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
   const collectionId = process.env.NEXT_PUBLIC_APPWRITE_COMMENTS_COLLECTION_ID;
-  
+
   if (!dbId || !collectionId) {
     throw new Error('Missing environment variables');
   }
@@ -87,7 +90,7 @@ async function getComments(blogId: string): Promise<Comment[]> {
     Query.orderDesc('$createdAt'),
   ]);
 
-  return res.documents.map(doc => ({
+  return res.documents.map((doc) => ({
     $id: doc.$id,
     content: doc.content,
     userId: doc.userId,
@@ -98,23 +101,16 @@ async function getComments(blogId: string): Promise<Comment[]> {
   }));
 }
 
-// 5. Page component with proper params handling
-export default async function BlogPage({
-  params,
-}: {
-  params: { blog: string };
-}) {
-  // Await the params to ensure they're resolved
-  const { blog } = await Promise.resolve(params);
+// 5. Page component
+export default async function BlogPage({ params }: PageProps) {
+  const blog = (await Promise.resolve(params)).blog;
 
   try {
-    // Fetch data in parallel
     const [blogPost, comments] = await Promise.all([
       getBlogPost(blog),
       getComments(blog),
     ]);
 
-    // Structured data for SEO
     const jsonLd = {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
