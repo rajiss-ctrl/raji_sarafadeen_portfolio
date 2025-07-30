@@ -38,8 +38,8 @@ export async function generateMetadata(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _parent: ResolvingMetadata
 ): Promise<Metadata> {
-  // Safe params access pattern
-  const blogId = (await params).blog;
+  // Properly await params
+  const { blog: blogId } = await params;
 
   try {
     const blogPost = await getBlogPost(blogId);
@@ -108,8 +108,8 @@ async function getComments(blogId: string): Promise<Comment[]> {
 
 // 6. Page component with proper params handling
 export default async function BlogPage(props: Props) {
-  // Safe params access pattern
-  const blogId = (await props.params).blog;
+  // Properly await params
+  const { blog: blogId } = await props.params;
 
   try {
     const [blogPost, comments] = await Promise.all([
