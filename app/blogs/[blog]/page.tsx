@@ -3,7 +3,7 @@ import { databases } from '@/app/lib/appwrite';
 import { Query } from 'appwrite';
 import CommentSection from '@/app/components/blog/CommentSection';
 import Image from 'next/image';
-import type { Metadata } from 'next';
+import type { Metadata, ResolvingMetadata } from 'next';
 
 // 1. Define types
 interface BlogPost {
@@ -27,11 +27,18 @@ interface Comment {
 // 2. Enable ISR (revalidate every hour)
 export const revalidate = 3600;
 
-// 3. Metadata generation — FIXED
-export async function generateMetadata(props: {
+// 3. Metadata generation
+type Props = {
   params: { blog: string };
-}): Promise<Metadata> {
-  const blogId = props?.params?.blog; // ✅ safest access pattern
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  _: ResolvingMetadata
+): Promise<Metadata> {
+  // Safe params access pattern
+  const blogId = (await params).blog;
 
   try {
     const blogPost = await getBlogPost(blogId);
@@ -98,11 +105,10 @@ async function getComments(blogId: string): Promise<Comment[]> {
   }));
 }
 
-// 6. Page component — FIXED
-export default async function BlogPage(props: {
-  params: { blog: string };
-}) {
-  const blogId = props?.params?.blog; // ✅ safe access without inline destructuring
+// 6. Page component with proper params handling
+export default async function BlogPage(props: Props) {
+  // Safe params access pattern
+  const blogId = (await props.params).blog;
 
   try {
     const [blogPost, comments] = await Promise.all([
