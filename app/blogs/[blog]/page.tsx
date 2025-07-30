@@ -5,7 +5,7 @@ import CommentSection from '@/app/components/blog/CommentSection';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 
-// 1. Define strict types
+// 1. Define types
 interface BlogPost {
   $id: string;
   title: string;
@@ -24,21 +24,17 @@ interface Comment {
   blogId: string;
 }
 
-interface PageProps {
-  params: {
-    blog: string;
-  };
-}
-
-// 2. Enable ISR - Revalidate every hour
+// 2. Enable ISR (revalidate every hour)
 export const revalidate = 3600;
 
-// 3. Generate metadata
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const blog = (await Promise.resolve(params)).blog;
+// 3. Metadata generation — FIXED
+export async function generateMetadata(props: {
+  params: { blog: string };
+}): Promise<Metadata> {
+  const blogId = props?.params?.blog; // ✅ safest access pattern
 
   try {
-    const blogPost = await getBlogPost(blog);
+    const blogPost = await getBlogPost(blogId);
     return {
       title: `${blogPost.title} | My Blog`,
       description: blogPost.content.slice(0, 160),
@@ -56,7 +52,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
-// 4. Data fetching functions
+// 4. Fetch blog post
 async function getBlogPost(blogId: string): Promise<BlogPost> {
   const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
   const collectionId = process.env.NEXT_PUBLIC_APPWRITE_BLOGS_COLLECTION_ID;
@@ -77,6 +73,7 @@ async function getBlogPost(blogId: string): Promise<BlogPost> {
   };
 }
 
+// 5. Fetch comments
 async function getComments(blogId: string): Promise<Comment[]> {
   const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
   const collectionId = process.env.NEXT_PUBLIC_APPWRITE_COMMENTS_COLLECTION_ID;
@@ -101,14 +98,16 @@ async function getComments(blogId: string): Promise<Comment[]> {
   }));
 }
 
-// 5. Page component
-export default async function BlogPage({ params }: PageProps) {
-  const blog = (await Promise.resolve(params)).blog;
+// 6. Page component — FIXED
+export default async function BlogPage(props: {
+  params: { blog: string };
+}) {
+  const blogId = props?.params?.blog; // ✅ safe access without inline destructuring
 
   try {
     const [blogPost, comments] = await Promise.all([
-      getBlogPost(blog),
-      getComments(blog),
+      getBlogPost(blogId),
+      getComments(blogId),
     ]);
 
     const jsonLd = {
@@ -139,7 +138,9 @@ export default async function BlogPage({ params }: PageProps) {
                   })}
                 </time>
                 <span className="mx-2">•</span>
-                <span>{Math.ceil(blogPost.content.length / 1000)} min read</span>
+                <span>
+                  {Math.ceil(blogPost.content.length / 1000)} min read
+                </span>
               </div>
             </header>
 
@@ -162,7 +163,7 @@ export default async function BlogPage({ params }: PageProps) {
             />
           </article>
 
-          <CommentSection blogId={blog} initialComments={comments} />
+          <CommentSection blogId={blogId} initialComments={comments} />
         </div>
       </div>
     );
