@@ -35,7 +35,8 @@ type Props = {
 
 export async function generateMetadata(
   { params }: Props,
-  _: ResolvingMetadata
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _parent: ResolvingMetadata
 ): Promise<Metadata> {
   // Safe params access pattern
   const blogId = (await params).blog;
