@@ -38,11 +38,11 @@ export async function generateMetadata(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _parent: ResolvingMetadata
 ): Promise<Metadata> {
-  // Properly await params
-  const { blog: blogId } = await params;
-
   try {
+    // Properly await params per Next.js 15.3.3+ requirements
+    const { blog: blogId } = await params;
     const blogPost = await getBlogPost(blogId);
+    
     return {
       title: `${blogPost.title} | My Blog`,
       description: blogPost.content.slice(0, 160),
@@ -106,12 +106,11 @@ async function getComments(blogId: string): Promise<Comment[]> {
   }));
 }
 
-// 6. Page component with proper params handling
-export default async function BlogPage(props: Props) {
-  // Properly await params
-  const { blog: blogId } = await props.params;
-
+// 6. Page component with proper async params handling
+export default async function BlogPage({ params }: Props) {
   try {
+    // Properly await params per Next.js 15.3.3+ requirements
+    const { blog: blogId } = await params;
     const [blogPost, comments] = await Promise.all([
       getBlogPost(blogId),
       getComments(blogId),
