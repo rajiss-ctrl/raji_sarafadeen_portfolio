@@ -35,29 +35,29 @@ export default async function BlogListPage() {
     }));
 
     return (
-      <div className="bg-[#0f172a] min-h-screen text-white py-10 px-4 md:pl-[19%]">
+      <div className=" min-h-screen text-white py-24 px-4 md:pl-[19%]">
         <AuthStatus/>
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-6xl lg:text-7xl font-bold absolute top-40 left-0 opacity-5 text-gray-400">CONTACT ME</h1>
+        <div className="max-w-7xl mx-auto mt-10">
+          <h1 className="text-6xl font-bold absolute top-40 left-34 opacity-5 text-gray-400"> RECENT BLOGS</h1>
           <div className="pl-4 lg:pl-0 lg:w-[320px]">
-            <h1 className="font-manrope relative leading-tight text-3xl lg:text-5xl font-semibold">
-              CONTACT ME
+            <h1 className="text-4xl font-extrabold mb-8 pb-4">
+               RECENT BLOGS
             </h1>
             <div className="
                       w-[50%] h-[0.4rem] 
                       bg-[#0c3360] 
                       rounded-[10px] 
-                      mt-4
+                      -mt-4
                       relative before:absolute before:top before:left-0 before:w-1/2 before:h-[0.4rem] before:rounded-[10px] before:bg-[#037fff] before:content-['']
                       ">
               </div>
           </div>
 
-          <h1 className="text-4xl font-extrabold mb-8 border-b border-gray-700 pb-4">
+          {/* <h1 className="text-4xl font-extrabold mb-8 border-b border-gray-700 pb-4">
             RECENT BLOGS
-          </h1>
+          </h1> */}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-20">
             {blogs.map(blog => (
               <BlogCard key={blog.id} {...blog} />
             ))}

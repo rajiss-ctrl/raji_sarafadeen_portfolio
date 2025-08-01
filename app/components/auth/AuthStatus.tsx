@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import SocialIcons from './SocialIcons';
 import { account } from '@/app/lib/appwrite';
+import { FaTasks } from 'react-icons/fa';
 
 type AppwriteUser = {
   $id: string;
@@ -50,9 +51,9 @@ export default function AuthStatus() {
         {user?.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL &&
           <Link 
             href="/admin" 
-            className="text-sm bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+            className="flex items-center text-sm font-bold bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
           >
-            Admin Dashboard
+          <span>Admin</span>  <FaTasks/>
           </Link>
         }
           <button
