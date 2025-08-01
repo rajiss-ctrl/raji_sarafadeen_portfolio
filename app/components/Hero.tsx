@@ -24,14 +24,14 @@ const Hero = () => {
           </h1>
           <p className="mt-4 text-center leading-relaxed text-lg font-light text-[#86a4c4] lg:px-1">I’m a   <span className='text-[#037fff] font-bold'>Website</span> <span className='text-white font-bold'>Developer</span> specializing in ReactJS & NextJS. I design and build scalable web and mobile applications that help businesses grow, stand out, and solve complex challenges with smart, reliable solutions.</p>
           <div className="flex gap-6 mt-6">
-            <Link href='/' className="w-[45px] h-[45px] p-3 flex justify-center items-center rounded-[50%] border-2 border-gray-600 hover:border-[#037fff]">
-              <BsGithub className="text-gray-400 text-2xl hover:text-[#037fff]" />
+            <Link href='/' className="w-[45px] h-[45px] p-3 flex justify-center items-center rounded-[50%] text-gray-400 border-2 border-gray-600 hover:border-[#037fff] hover:text-[#037fff]">
+              <BsGithub className="text-2xl" />
             </Link>
-            <Link href='/' className="w-[45px] h-[45px] p-3 flex justify-center items-center rounded-[50%] border-2 border-gray-600 hover:border-[#037fff]">
-              <FaLinkedin className="text-gray-400 text-2xl hover:text-[#037fff]" />
+            <Link href='/' className="w-[45px] h-[45px] p-3 flex justify-center items-center rounded-[50%] text-gray-400 border-2 border-gray-600 hover:border-[#037fff] hover:text-[#037fff]">
+              <FaLinkedin className="text-2xl" />
             </Link>
-            <Link href='https://twitter.com/rajisanjo' className="w-[45px] h-[45px] p-3 flex justify-center items-center rounded-[50%] border-2 border-gray-600 hover:border-[#037fff]">
-              <BsTwitterX className="text-gray-400 text-2xl hover:text-[#037fff]" />
+            <Link href='https://twitter.com/rajisanjo' className="w-[45px] h-[45px] p-3 flex justify-center items-center rounded-[50%] text-gray-400 border-2 border-gray-600 hover:border-[#037fff] hover:text-[#037fff]">
+              <BsTwitterX className="text-2xl" />
             </Link>
           </div>
         </div>

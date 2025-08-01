@@ -3,85 +3,86 @@ import { databases } from '@/app/lib/appwrite';
 import { Query } from 'appwrite';
 import CommentSection from '@/app/components/blog/CommentSection';
 import Image from 'next/image';
-import type { Metadata, ResolvingMetadata } from 'next';
+// import type { Metadata, ResolvingMetadata } from 'next';
+import { generateMetadata } from './generateMetadata';
+import { getBlogPost } from './data';
 
-// 1. Define types
-interface BlogPost {
-  $id: string;
-  title: string;
-  content: string;
-  $createdAt: string;
-  image?: string;
-}
-
-interface Comment {
-  $id: string;
-  content: string;
-  userId: string;
-  authorName: string;
-  $createdAt: string;
-  like?: boolean;
-  blogId: string;
-}
-
-// 2. Enable ISR (revalidate every hour)
-export const revalidate = 3600;
-
-// 3. Metadata generation
-type Props = {
-  params: { blog: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export async function generateMetadata(
-  { params }: Props,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _parent: ResolvingMetadata
-): Promise<Metadata> {
-  try {
-    // Properly await params per Next.js 15.3.3+ requirements
-    const { blog: blogId } = await params;
-    const blogPost = await getBlogPost(blogId);
-    
-    return {
-      title: `${blogPost.title} | My Blog`,
-      description: blogPost.content.slice(0, 160),
-      openGraph: {
-        title: blogPost.title,
-        description: blogPost.content.slice(0, 160),
-        images: blogPost.image ? [{ url: blogPost.image }] : [],
-      },
-    };
-  } catch {
-    return {
-      title: 'Blog Post',
-      description: 'A blog post',
-    };
+// interface BlogPost {
+  //   $id: string;
+  //   title: string;
+  //   content: string;
+  //   $createdAt: string;
+  //   image?: string;
+  // }
+  
+  interface Comment {
+    $id: string;
+    content: string;
+    userId: string;
+    authorName: string;
+    $createdAt: string;
+    like?: boolean;
+    blogId: string;
   }
-}
-
-// 4. Fetch blog post
-async function getBlogPost(blogId: string): Promise<BlogPost> {
-  const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
-  const collectionId = process.env.NEXT_PUBLIC_APPWRITE_BLOGS_COLLECTION_ID;
-
-  if (!dbId || !collectionId) {
-    throw new Error('Missing environment variables');
-  }
-
-  const doc = await databases.getDocument(dbId, collectionId, blogId);
-  if (!doc) throw new Error('Blog not found');
-
-  return {
-    $id: doc.$id,
-    title: doc.title,
-    content: doc.content,
-    $createdAt: doc.$createdAt,
-    image: doc.image,
+  
+  
+  export const revalidate = 3600;
+  
+  type Props = {
+    params: Promise<{ slug: string }>;
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
   };
-}
+  
+  export { /* @next-codemod-error `generateMetadata` export is re-exported. Check if this component uses `params` or `searchParams`*/
+  generateMetadata };
+// export async function generateMetadata(
+//   { params }: Props,
+//   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+//   _parent: ResolvingMetadata
+// ): Promise<Metadata> {
+//   try {
+//     const { slug: blogId } = params; // ✅ NO await
+//     const blogPost = await getBlogPost(blogId);
 
-// 5. Fetch comments
+//     return {
+//       title: `${blogPost.title} | My Blog`,
+//       description: blogPost.content.slice(0, 160),
+//       openGraph: {
+//         title: blogPost.title,
+//         description: blogPost.content.slice(0, 160),
+//         images: blogPost.image ? [{ url: blogPost.image }] : [],
+//       },
+//     };
+//   } catch {
+//     return {
+//       title: 'Blog Post',
+//       description: 'A blog post',
+//     };
+//   }
+// }
+
+
+
+// async function getBlogPost(blogId: string): Promise<BlogPost> {
+//   const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
+//   const collectionId = process.env.NEXT_PUBLIC_APPWRITE_BLOGS_COLLECTION_ID;
+
+//   if (!dbId || !collectionId) {
+//     throw new Error('Missing environment variables');
+//   }
+
+//   const doc = await databases.getDocument(dbId, collectionId, blogId);
+//   if (!doc) throw new Error('Blog not found');
+
+//   return {
+//     $id: doc.$id,
+//     title: doc.title,
+//     content: doc.content,
+//     $createdAt: doc.$createdAt,
+//     image: doc.image,
+//   };
+// }
+
 async function getComments(blogId: string): Promise<Comment[]> {
   const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
   const collectionId = process.env.NEXT_PUBLIC_APPWRITE_COMMENTS_COLLECTION_ID;
@@ -106,11 +107,10 @@ async function getComments(blogId: string): Promise<Comment[]> {
   }));
 }
 
-// 6. Page component with proper async params handling
-export default async function BlogPage({ params }: Props) {
+export default async function BlogPage(props: Props) {
+  const params = await props.params;
   try {
-    // Properly await params per Next.js 15.3.3+ requirements
-    const { blog: blogId } = await params;
+    const { slug: blogId } = params; 
     const [blogPost, comments] = await Promise.all([
       getBlogPost(blogId),
       getComments(blogId),
