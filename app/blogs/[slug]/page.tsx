@@ -3,65 +3,33 @@ import { databases } from '@/app/lib/appwrite';
 import { Query } from 'appwrite';
 import CommentSection from '@/app/components/blog/CommentSection';
 import Image from 'next/image';
-// import type { Metadata, ResolvingMetadata } from 'next';
-import { generateMetadata } from './generateMetadata';
+import type { Metadata } from 'next';
 import { getBlogPost } from './data';
 
-// interface BlogPost {
-  //   $id: string;
-  //   title: string;
-  //   content: string;
-  //   $createdAt: string;
-  //   image?: string;
-  // }
-  
-  interface Comment {
-    $id: string;
-    content: string;
-    userId: string;
-    authorName: string;
-    $createdAt: string;
-    like?: boolean;
-    blogId: string;
-  }
-  
-  
-  export const revalidate = 3600;
-  
-  type Props = {
-    params: Promise<{ slug: string }>;
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-  };
-  
-  export { /* @next-codemod-error `generateMetadata` export is re-exported. Check if this component uses `params` or `searchParams`*/
-  generateMetadata };
-// export async function generateMetadata(
-//   { params }: Props,
-//   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-//   _parent: ResolvingMetadata
-// ): Promise<Metadata> {
-//   try {
-//     const { slug: blogId } = params; // ✅ NO await
-//     const blogPost = await getBlogPost(blogId);
+interface Comment {
+  $id: string;
+  content: string;
+  userId: string;
+  authorName: string;
+  $createdAt: string;
+  like?: boolean;
+  blogId: string;
+}
 
-//     return {
-//       title: `${blogPost.title} | My Blog`,
-//       description: blogPost.content.slice(0, 160),
-//       openGraph: {
-//         title: blogPost.title,
-//         description: blogPost.content.slice(0, 160),
-//         images: blogPost.image ? [{ url: blogPost.image }] : [],
-//       },
-//     };
-//   } catch {
-//     return {
-//       title: 'Blog Post',
-//       description: 'A blog post',
-//     };
-//   }
+// interface BlogPost {
+//   $id: string;
+//   title: string;
+//   content: string;
+//   $createdAt: string;
+//   image?: string;
 // }
 
+export const revalidate = 3600;
 
+type Props = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
 // async function getBlogPost(blogId: string): Promise<BlogPost> {
 //   const dbId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
@@ -107,10 +75,32 @@ async function getComments(blogId: string): Promise<Comment[]> {
   }));
 }
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  try {
+    const resolvedParams = await params; // Await the params object
+    const blogPost = await getBlogPost(resolvedParams.slug); // Use resolved params
+
+    return {
+      title: `${blogPost.title} | My Blog`,
+      description: blogPost.content.slice(0, 160),
+      openGraph: {
+        title: blogPost.title,
+        description: blogPost.content.slice(0, 160),
+        images: blogPost.image ? [{ url: blogPost.image }] : [],
+      },
+    };
+  } catch {
+    return {
+      title: 'Blog Post',
+      description: 'A blog post',
+    };
+  }
+}
+
 export default async function BlogPage(props: Props) {
   const params = await props.params;
   try {
-    const { slug: blogId } = params; 
+    const { slug: blogId } = params;
     const [blogPost, comments] = await Promise.all([
       getBlogPost(blogId),
       getComments(blogId),
