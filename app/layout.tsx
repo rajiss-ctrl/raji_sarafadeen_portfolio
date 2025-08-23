@@ -12,7 +12,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: {
-    default: "ReactJS & Next.js Developer Portfolio | Raji Sarafadeen",
+    default: "Raji Sarafadeen | ReactJS & Next.js Developer Portfolio ",
     template: "%s | ReactJS & Next.js Developer | Raji Sarafadeen",
   },
   description: "Raji Sarafadeen's portfolio — ReactJS & Next.js Developer for web & mobile solutions.",
@@ -47,7 +47,7 @@ export default function RootLayout({
         <link rel="privacy-policy" href="/privacy" />
       </head>
       
-      <body className="relative bg-[#0f172a] text-white font-[var(--font-roboto)] overflow-x-hidden">
+      <body className="relative bg-[#0f172a] text-white overflow-x-hidden">
         {/* Fixed Sidebar */}
         <aside className="fixed top-0 left-0 z-20 h-screen">
           <Sidebar />

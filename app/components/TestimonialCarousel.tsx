@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
 const cards = [
-  { id: 1, name: 'Susan', role: 'Client', text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et repellendus dolor doloremque saepe voluptatibus consequatur blanditiis.' },
+  { id: 1, name: 'Mr. Orji', role: 'Client', text: "PCDF is thrilled with our new website. The clean design makes our work shine, and it’s now incredibly easy for people to get involved and donate. We highly recommend Mr. Raji for your website development." },
   { id: 2, name: 'Elijah Morakinyo', role: 'CEO Trig8Ltd', text: 'Dedicated, hardworking and diligent developer. He knows the pros and cons of ReactJS and keeps learning every day.' },
-  { id: 3, name: 'Anna', role: 'Client', text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et repellendus dolor doloremque saepe voluptatibus consequatur blanditiis eum.' },
-  { id: 4, name: 'Mike', role: 'Client', text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et repellendus dolor doloremque saepe voluptatibus consequatur blanditiis eum.' },
+  { id: 3, name: 'Idris A.', role: 'Collaborator', text: 'Collaborating with Raji was fantastic. His clean code and pixel-perfect attention to detail made the entire process smooth and the result impressive. A true asset to any team.' },
+  // { id: 4, name: 'Mike', role: 'Client', text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et repellendus dolor doloremque saepe voluptatibus consequatur blanditiis eum.' },
 ];
 
 export default function TestimonialCarousel() {

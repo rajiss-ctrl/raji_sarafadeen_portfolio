@@ -5,16 +5,16 @@ import { databases, ID } from '@/app/lib/appwrite';
 import { useState, useEffect } from 'react';
 import AuthStatus from '../auth/AuthStatus';
 
-// Initialize Appwrite client
+
 const client = new Client()
   .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
   .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!);
 
-// In CommentSection.tsx
+
 interface Comment {
   $id: string;
   content: string;
-  userId: string; // Same as above
+  userId: string; 
   authorName: string;
   $createdAt: string;
   like?: boolean;
@@ -78,7 +78,7 @@ export default function CommentSection({ blogId, initialComments }: CommentSecti
 
     setLoading(true);
     try {
-      // Safely fallback if name is null or empty
+      
       const authorName = user.name?.trim() || user.email.split('@')[0] || 'Unknown';
 
       const response = await databases.createDocument(
