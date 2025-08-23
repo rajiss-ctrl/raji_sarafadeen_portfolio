@@ -60,18 +60,18 @@ function SidebarContent() {
   return (
     <>
     <Link href={'/'} className="mt-10 flex flex-col items-center justify-center bg-white w-[178px] h-[178px] rounded-[50%]">
-  <Image 
-    src='/raji-sarafadeen.png' 
-    alt="Raji Sarafadeen, Web Dev" 
-    width={170}
-    height={170}
-    className='rounded-[50%]'
-    style={{
-      width: '170px',
-      height: '170px',
-    }}
-  /> 
-</Link>
+      <Image 
+        src='/raji-sarafadeen.png' 
+        alt="Raji Sarafadeen, Web Dev" 
+        width={170}
+        height={170}
+        className='rounded-[50%]'
+        style={{
+          width: '170px',
+          height: '170px',
+        }}
+      /> 
+    </Link>
       {/* <Link href={'/'} className="mt-10 flex flex-col items-center justify-center bg-white w-[178px] h-[178px] rounded-[50%]">
         <img src='/raji-sarafadeen.png'  alt="Raji Sarafadeen, Web Dev" className='w-[170px] h-[170px] rounded-[50%]'/> 
       </Link> */}

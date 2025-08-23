@@ -28,22 +28,22 @@ export const techStack: TechSkill[] = [
 
 export const workExperience: ExperienceItem[] = [
   {
-    period: '2018 - Present',
-    title: 'Frontend Web Developer',
-    company: 'Abc Company',
-    description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, magni mollitia, aspernatur consequatur accusamus vero eum facere exercitationem velit suscipit ipsam placeat libero. Deleniti exercitationem nostrum quasi. Molestiae, vel porro.'
+    period: '2023 - Present',
+    title: 'Reactjs Developer (freelancing/contract)',
+    company: 'Trig8 Limited, Nigeria',
+    description: "As a web developer for Trig8 Limited, I delivered targeted expertise, enhancing website performance by 50% and boosting organic traffic by 25% through precise, high-caliber development and strategic feature enhancements."
   },
   {
-    period: '2016 - 2018',
-    title: 'Frontend Web Developer',
-    company: 'CBA Company',
-    description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, magni mollitia, aspernatur consequatur accusamus vero eum facere exercitationem velit suscipit ipsam placeat libero.'
+    period: '2021 - 2022',
+    title: 'Frontend Web Developer | React.js Intern ',
+    company: 'KodeHauz Solutions, Nigeria',
+    description: 'As a React.js Intern at KodeHauz Solutions, I contributed directly to a Learning Management System (LMS) platform, where I resolved 40% of all critical bugs through meticulous code reviews, enhancing platform stability and user experience.'
   },
   {
-    period: '2016 - 2018',
+    period: '2024 - present',
     title: 'Frontend Web Developer',
-    company: 'CBA Company',
-    description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, magni mollitia, aspernatur consequatur accusamus vero eum facere exercitationem velit suscipit ipsam placeat libero.'
+    company: 'PCDF, Nigeria',
+    description: 'Pro bono web developer and maintainer for the Prince Orji Foundation (PCDF), an NGO providing critical financial, material, and educational support to underprivileged primary and secondary school children. Delivered a robust online presence to amplify their mission and reach.'
   }
 ];
 
