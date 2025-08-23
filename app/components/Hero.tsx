@@ -50,7 +50,7 @@ const Hero = () => {
     <header className="relative h-screen overflow-hidden">
       {/* Background video */}
       <video
-        src="/bg_video.mp4"
+        src="/bg_video.webm"
         autoPlay
         loop
         muted
