@@ -100,7 +100,7 @@ export const projects = [
     des: "A modern, responsive skincare online store built with React and Node.js, featuring a secure Stripe payment gateway, user accounts, and an admin dashboard for product management.",
     img: "/skcare.png",
     iconLists: ["/re.svg","tail.svg"],
-    link: "https://github.com/adrianhajdin/iphone",
+    link: "https://github.com/rajiss-ctrl/skcare-app",
   },
   {
     id: 5,
