@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-// import { BsPersonBadgeFill } from "react-icons/bs"
 import NavLink from "./NavLink"
 import { motion, AnimatePresence } from 'framer-motion'
 import { IoMdMenu, IoMdClose } from 'react-icons/io'
@@ -13,12 +12,12 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* ✅ Desktop sidebar: always visible */}
+      {/* Desktop sidebar: always visible */}
       <aside className="hidden border-r-[1.8px] border-gray-700 md:flex fixed top-0 left-0 w-[18%] z-30 h-screen bg-[#191d2b] text-white py-8 flex-col justify-between items-center">
         <SidebarContent />
       </aside>
 
-      {/* ✅ Mobile toggle button: only visible on mobile */}
+      {/* Mobile toggle button: only visible on mobile */}
       <button
         onClick={() => setIsOpen(prev => !prev)}
         className={`${isOpen ? 'hidden' : 'flex'}
@@ -29,7 +28,7 @@ const Sidebar = () => {
             <IoMdMenu size={30} />
       </button>
 
-      {/* ✅ Mobile sidebar overlay */}
+      {/*  Mobile sidebar overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.aside
@@ -72,9 +71,6 @@ function SidebarContent() {
         }}
       /> 
     </Link>
-      {/* <Link href={'/'} className="mt-10 flex flex-col items-center justify-center bg-white w-[178px] h-[178px] rounded-[50%]">
-        <img src='/raji-sarafadeen.png'  alt="Raji Sarafadeen, Web Dev" className='w-[170px] h-[170px] rounded-[50%]'/> 
-      </Link> */}
 
       <div className="w-full h-[0.8px] bg-gray-700  mt-5"></div>
       <div className="w-full flex flex-col text-center text-[#86a4c4] lg:px-1">
