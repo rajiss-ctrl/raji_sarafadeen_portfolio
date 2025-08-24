@@ -51,7 +51,7 @@ export default function TestimonialCarousel() {
           index = 0;
         }, 1200);
       }
-    }, 4000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, [controls, slideWidth]);
@@ -68,7 +68,7 @@ export default function TestimonialCarousel() {
               before:absolute before:left-4 before:-bottom-[25px]
               before:border-r-[25px] before:border-t-[25px]
               before:border-r-transparent before:border-t-[#191d2b]">
-              <p className="text-[#86a4c4]">{card.text}</p>
+              <p className="text-[#6b9acc]">{card.text}</p>
             </div>
             <div className="mt-6 text-white">
               <h4 className="font-manrope text-xl">{card.name}</h4>

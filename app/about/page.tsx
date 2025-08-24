@@ -32,26 +32,26 @@ const page = () => {
 
           <div className="flex flex-col lg:flex-row gap-4 mt-24">
             
-              <Image src='/raji sarafadeen.png' width={800} height={100} alt="Raji Sarafadeen, Web Dev" className='rounded-md'/>
+              <Image src='/raji sarafadeen.png' width={500} height={500} alt="Raji Sarafadeen, Web Dev" className='rounded-md'/>
             
             <div className="">
-              <h2 className='font-manrope text-semibold leading-tight text-4xl font-semibold'>
+              <h2 className='font-manrope text-semibold leading-tight text-5xl font-semibold'>
                 I am <span className='text-[#037fff] '>Raji Sarafadeen</span>
               </h2>
-                <p className='mt-8 text-lg text-[#86a4c4] font-light'>I&apos;m a Software Developer based in Nigeria, developing modern solutions with a customer-first approach. My passion lies in delivering seamless user experiences, ensuring web accessibility for all and building scalable optimized APIs.</p>
-                  <ul className="mt-4 text-lg text-[#86a4c4] font-light w-full space-y-2">
+                <p className='mt-8 text-lg text-[#6b9acc] font-light'>I&apos;m a Software Developer based in Nigeria, developing modern solutions with a customer-first approach. My passion lies in delivering seamless user experiences, ensuring web accessibility for all and building scalable optimized APIs.</p>
+                  <ul className="mt-4 text-lg text-[#6b9acc] font-light w-full space-y-2">
                     <li className="flex items-start">
-                      <h3 className="text-lg font-semibold w-1/4">Full Name</h3>
+                      <h3 className="text-lg text-white font-semibold w-1/4">Full Name</h3>
                       <span className="w-4 text-center">:</span>
                       <span className="flex-1">Raji Sarafadeen Sanjo</span>
                     </li>
                     <li className="flex items-start">
-                      <h3 className="text-lg font-semibold w-1/4">Languages</h3>
+                      <h3 className="text-lg text-white font-semibold w-1/4">Languages</h3>
                       <span className="w-4 text-center">:</span>
                       <span className="flex-1">English, Yoruba</span>
                     </li>
                     <li className="flex items-start">
-                      <h3 className="text-lg font-semibold w-1/4">Email</h3>
+                      <h3 className="text-lg text-white font-semibold w-1/4">Email</h3>
                       <span className="w-4 text-center">:</span>
                        <a 
                         href="mailto:omosanjos77@gmail.com" 
@@ -61,19 +61,19 @@ const page = () => {
                       </a>
                     </li>
                     <li className="flex items-start">
-                      <h3 className="text-lg font-semibold w-1/4">Phone</h3>
+                      <h3 className="text-lg text-white font-semibold w-1/4">Phone</h3>
                       <span className="w-4 text-center">:</span>
                       <span className="flex-1 text-[0.975rem] leading-[1.4286]">+2347038699659</span>
                     </li>
                     <li className="flex items-start">
-                      <h3 className="text-lg font-semibold w-1/4">Freelance</h3>
+                      <h3 className="text-lg text-white font-semibold w-1/4">Freelance</h3>
                       <span className="w-4 text-center">:</span>
                       <span className="flex-1">Available</span>
                     </li>
                   </ul>
 
                 <button className="group relative bg-[#037fff] py-3 px-6 mt-8 cursor-pointer overflow-hidden">
-                  <span className="relative z-10 text-white">DOWNLOAD CV</span>
+                  <span className="relative z-10 text-white font-medium">DOWNLOAD CV</span>
                   <span
                     className="
                       absolute
@@ -117,17 +117,17 @@ const page = () => {
           <div className="bg-[#191d2b] border-x-1 border-b-1 border-t-4 hover:border-t-[#037fff] border-gray-700 p-4 lg:p-8">
             <BiCodeAlt className="text-4xl text-[#1356f0] mb-2" size={60} />
             <h3 className='relative font-light text-2xl text-white mb-8 before:content-[""] before:absolute before:-bottom-4 before:left-0 before:w-[20%] before:h-[0.20rem] before:bg-[#3b4058]'>Web Development</h3>
-            <p className='mt-8 text-[#86a4c4]'>Builds dynamic, scalable web applications with the React ecosystem and Next.js framework.</p>
+            <p className='mt-8 text-[#6b9acc]'>Builds dynamic, scalable web applications with the React ecosystem and Next.js framework.</p>
           </div>
           <div className="bg-[#191d2b] border-x-1 border-b-1 border-t-4 hover:border-t-[#037fff] border-gray-700 p-4 lg:p-8">
             <MdPhoneIphone className="text-4xl text-[#1356f0] mb-2" size={60} />
             <h3 className='relative font-light text-2xl text-white mb-8 before:content-[""] before:absolute before:-bottom-4 before:left-0 before:w-[20%] before:h-[0.20rem] before:bg-[#3b4058]'>Mobile Application</h3>
-            <p className='mt-8 text-[#86a4c4]'>I build clean, native mobile apps for iOS and Android that feel intuitive and perform flawlessly.</p>
+            <p className='mt-8 text-[#6b9acc]'>I build clean, native mobile apps for iOS and Android that feel intuitive and perform flawlessly.</p>
           </div>
           <div className="bg-[#191d2b] border-x-1 border-b-1 border-t-4 hover:border-t-[#037fff] border-gray-700 p-4 lg:p-8">
             <BiServer className="text-4xl text-[#1356f0] mb-2" size={60} />
             <h3 className='relative font-light text-2xl text-white mb-8 before:content-[""] before:absolute before:-bottom-4 before:left-0 before:w-[20%] before:h-[0.20rem] before:bg-[#3b4058]'>Virtual Private Server</h3>
-            <p className='mt-8 text-[#86a4c4]'>A rock-solid virtual server. Complete control, better performance than shared hosting, and easy scalability.</p>
+            <p className='mt-8 text-[#6b9acc]'>A rock-solid virtual server. Complete control, better performance than shared hosting, and easy scalability.</p>
           </div>
         </div>
       </div>

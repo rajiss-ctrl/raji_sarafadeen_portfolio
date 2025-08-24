@@ -5,6 +5,7 @@ import { FaLocationArrow } from "react-icons/fa6";
 
 import { PinContainer } from "./ui/Pin";
 import { projects } from "../data";
+import Link from "next/link";
 
 const RecentProjects = () => {
   return (
@@ -38,7 +39,7 @@ const RecentProjects = () => {
               </h1>
 
               <p
-                className=" text-[#86a4c4] font-light line-clamp-2"
+                className=" text-[#6b9acc] font-light line-clamp-2"
                 style={{
                   color: "#BEC1DD",
                   margin: "1vh 0",
@@ -63,9 +64,9 @@ const RecentProjects = () => {
                 </div>
 
                 <div className="flex justify-center items-center">
-                  <p className="flex  font-light md:text-xs text-sm text-purple">
+                  <Link href={item.link} className="flex  font-light md:text-xs text-sm text-purple">
                     Check Live Site
-                  </p>
+                  </Link>
                   <FaLocationArrow className="ms-3" color="#CBACF9" />
                 </div>
               </div>
