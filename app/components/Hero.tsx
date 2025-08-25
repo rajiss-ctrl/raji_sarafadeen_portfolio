@@ -1,11 +1,18 @@
 'use client'
 import Link from 'next/link';
 import React from 'react';
-import { BsGithub, BsTwitterX } from 'react-icons/bs';
+import { BsBriefcase, BsGithub, BsTwitterX } from 'react-icons/bs';
 import { FaLinkedin } from 'react-icons/fa';
 import { motion, Variants } from 'framer-motion';
+import { useSidebar } from '../context/SidebarContext';
 
 const Hero = () => {
+  const { setIsOpen } = useSidebar();
+   const handleNavClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      setIsOpen(false);
+    }
+  };
   // Animation variants with proper TypeScript typing
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -47,7 +54,11 @@ const Hero = () => {
   };
 
   return (
-    <header className="relative h-screen overflow-hidden">
+    <header onClick={handleNavClick} className="relative h-screen overflow-hidden">
+        <Link href="/portfolio" className='absolute z-50 right-4 top-6 flex gap-0.5 items-center text-white bg-[#191d2b] p-2 text-xs'>
+        <BsBriefcase size={26} className="text-[#6b9acc] font-light" /> 
+        <span>Projects</span>
+        </Link>
       {/* Background video */}
       <video
         src="/bg_video.webm"

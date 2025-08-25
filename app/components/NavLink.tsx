@@ -3,14 +3,15 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
-import { ReactNode } from 'react'
+import { ReactNode, MouseEventHandler } from 'react'
 
 interface NavLinkProps {
   href: string
   children: ReactNode
+  onClick?: MouseEventHandler<HTMLAnchorElement> // 👈 add optional onClick
 }
 
-export default function NavLink({ href, children }: NavLinkProps) {
+export default function NavLink({ href, children, onClick }: NavLinkProps) {
   const pathname = usePathname()
 
   const normalize = (path: string) => {
@@ -49,6 +50,7 @@ export default function NavLink({ href, children }: NavLinkProps) {
 
       <Link
         href={href}
+        onClick={onClick} // 👈 support closing sidebar
         className={`relative block px-4 py-2 z-10 transition-colors duration-300 ${
           isActive ? 'text-white' : 'group-hover:text-[#037fff]'
         }`}

@@ -16,6 +16,7 @@ const RecentProjects = () => {
             className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-[30.4rem] w-[80vw]"
             key={item.id}
           >
+            <Link href={item.link}>
             <PinContainer
               title={item.title}
               href="https://twitter.com/rajisanjo"
@@ -64,16 +65,18 @@ const RecentProjects = () => {
                 </div>
 
                 <div className="flex justify-center items-center">
-                  <Link href={item.link} className="flex  font-light md:text-xs text-sm text-purple">
+                  <div className="flex  font-light md:text-xs text-sm text-purple">
                     Check Live Site
-                  </Link>
+                  </div>
                   <FaLocationArrow className="ms-3" color="#CBACF9" />
                 </div>
               </div>
             </PinContainer>
+            </Link>
           </div>
         ))}
       </div>
+      
     </div>
   );
 };

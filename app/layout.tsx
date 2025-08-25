@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import Sidebar from "./components/Sidebar";
+import { SidebarProvider } from "./context/SidebarContext";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  
   return (
     <html
       lang="en"
@@ -47,6 +49,7 @@ export default function RootLayout({
         <link rel="privacy-policy" href="/privacy" />
       </head>
       
+       <SidebarProvider>
       <body className="relative bg-[#0f172a] text-white overflow-x-hidden">
         {/* Fixed Sidebar */}
         <aside className="fixed top-0 left-0 z-20 h-screen">
@@ -63,8 +66,8 @@ export default function RootLayout({
         {/* Main content */}
         <main className="w-full lg:pl-auto h-screen lg:overflow-y-auto relative z-10 ">
           {/* Auth Success/Failure Toasts would appear here */}
-          {children}
-          
+           
+              {children}
           {/* Privacy and Data Deletion Links (footer or hidden) */}
           <div className="hidden">
             <a href="/privacy">Privacy Policy</a>
@@ -72,6 +75,7 @@ export default function RootLayout({
           </div>
         </main>
       </body>
+      </SidebarProvider>
     </html>
   );
 }

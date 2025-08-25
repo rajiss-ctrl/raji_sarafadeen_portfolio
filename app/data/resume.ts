@@ -1,5 +1,6 @@
 export interface TechSkill {
   name: string;
+  id: number;
 }
 
 export interface ExperienceItem {
@@ -17,13 +18,13 @@ export interface EducationItem {
 }
 
 export const techStack: TechSkill[] = [
-  { name: 'HTML5' },
-  { name: 'CSS' },
-  { name: 'JavaScript' },
-  { name: 'ReactJS' },
-  { name: 'NextJS' },
-  { name: 'VPS' },
-  { name: 'HTML5' }
+  { name: 'HTML5', id:1 },
+  { name: 'CSS', id:2 },
+  { name: 'JavaScript', id:3 },
+  { name: 'ReactJS', id:4 },
+  { name: 'NextJS', id:5 },
+  { name: 'VPS', id:6 },
+  { name: 'HTML5', id:7 }
 ];
 
 export const workExperience: ExperienceItem[] = [
