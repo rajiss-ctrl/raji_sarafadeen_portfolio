@@ -88,6 +88,22 @@ export const projects = [
   },
   {
     id: 3,
+    title: "OTBSolutions | IT Services",
+    des: "I help brands grow with OTB’s elevated IT services, building clean, high-performing websites, and tailored digital solutions.",
+    img: "/otb.png",
+    iconLists: ["/re.svg","/next.svg", "/tail.svg"],
+    link: "https://www.otbsolution.co.uk",
+  },
+  {
+    id: 4,
+    title: "CFFX, Forex Trader",
+    des: "Built CFFX’s trading platform website—designed for clarity, trust, and user engagement. Showcasing strategies for GBPJPY & US30 to help traders achieve predictable profits.",
+    img: "/cffx.png",
+    iconLists: ["/re.svg", "/next.svg", "/tail.svg"],
+    link: "https://www.cffx.co.uk",
+  },
+  {
+    id: 5,
     title: "NGO, Prince Orji Foundation",
     des: "A responsive website for the Prince Orji Foundation, designed to amplify their mission of supporting children's education, increase online donations, and attract volunteers through a clear and compelling narrative.",
     img: "/pcdf.png",
@@ -95,7 +111,7 @@ export const projects = [
     link: "https://www.pcdfafrica.org",
   },
   {
-    id: 4,
+    id: 6,
     title: "Skin Care E-Commerce shop",
     des: "A modern, responsive skincare online store built with React and Node.js, featuring a secure Stripe payment gateway, user accounts, and an admin dashboard for product management.",
     img: "/skcare.png",
@@ -103,7 +119,7 @@ export const projects = [
     link: "https://github.com/rajiss-ctrl/skcare-app",
   },
   {
-    id: 5,
+    id: 7,
     title: "Stock Management Web App",
     des: "A dynamic stock tracking dashboard that allows users to monitor real-time and prices, build personalized watchlists, and visualize performance trends.",
     img: "/stock.png",

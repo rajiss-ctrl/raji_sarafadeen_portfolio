@@ -42,7 +42,7 @@ const Sidebar = () => {
 
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 -right-[47px] text-center p-1 text-[#879bb1] border-[#879bb1] font-light bg-[#191d2b] rounded"
+              className="absolute top-4 -right-[47px] text-center p-1 text-[#879bb1] border border-gray-700 font-light bg-[#191d2b] rounded"
             >
               <IoMdClose size={40} />
             </button>
