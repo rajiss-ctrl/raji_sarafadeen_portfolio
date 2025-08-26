@@ -209,7 +209,7 @@ export const workExperience = [
     id: 1,
     title: "Trig8 Limited, Nigeria — Reactjs Developer (freelancing/contract)",
     company: "trig8Ltd",
-    link:"trig8.com",
+    link:"https://www.trig8.com",
     period: "October 2023 - Contract",                   
     description: "Enhanced website performance with Next.js SSR, cutting load times by 50%, boosting organic traffic by 25%, and driving a 15% increase in online sales conversions.", 
     className: "md:col-span-2",
