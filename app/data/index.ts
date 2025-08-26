@@ -92,7 +92,7 @@ export const projects = [
     des: "I help brands grow with OTB’s elevated IT services, building clean, high-performing websites, and tailored digital solutions.",
     img: "/otb.png",
     iconLists: ["/re.svg","/next.svg", "/tail.svg"],
-    link: "https://www.otbsolution.co.uk",
+    link: "https://www.otbsolutions.co.uk",
   },
   {
     id: 4,
