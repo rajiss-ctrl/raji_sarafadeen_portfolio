@@ -104,8 +104,8 @@ export const projects = [
   },
   {
     id: 5,
-    title: "NGO, Prince Orji Foundation",
-    des: "A responsive website for the Prince Orji Foundation, designed to amplify their mission of supporting children's education, increase online donations, and attract volunteers through a clear and compelling narrative.",
+    title: "PCDF, Prince Child Development Foundation",
+    des: "A responsive website for the Prince Child Development Foundation, designed to amplify their mission of supporting children's education, increase online donations, and attract volunteers through a clear and compelling narrative.",
     img: "/pcdf.png",
     iconLists: ["/re.svg", "/tail.svg"],
     link: "https://www.pcdfafrica.org",
@@ -217,7 +217,7 @@ export const workExperience = [
   {
     id: 3,
     title: "FrontEnd Developer",
-    company: "PCDF| Prince Orji Foundation",              // ✅ new
+    company: "PCDF| Prince Child Development Foundation",              // ✅ new
     link:"https://www.pcdfafrica.org",
     period: "April 2024 - Volunteer",     // ✅ new
     description: "Developed the official website for Prince Orji Development Foundation (PCDF), building it from the ground up to support their mission of helping children access education.", // ✅ renamed
