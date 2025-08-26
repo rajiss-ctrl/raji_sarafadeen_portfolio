@@ -81,7 +81,7 @@ export const projects = [
   {
     id: 2,
     title: "Proprietory Firm",
-    des: "A responsive, high-conversion lead prop firm platform built with Next.js, featuring a dynamic multi-step form with progress tracking.",
+    des: "A responsive, high-conversion lead prop firm platform built with Next.js.",
     img: "/nextlevel_project.png",
     iconLists: ["/next.svg", "/tail.svg"],
     link: "https://trig8ltd-nextlevelfunding-fxg4z5xsi-rajiss-ctrl.vercel.app/",
@@ -196,41 +196,35 @@ export const companies = [
 
 export const workExperience = [
   {
-    id: 1,
-    title: "Frontend Engineer Intern",
-    company: "Tech Corp",              // ✅ new
-    period: "Jan 2023 - Apr 2023",     // ✅ new
-    description: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.", // ✅ renamed
-    className: "md:col-span-2",
-    thumbnail: "/exp1.svg",
-  },
-  {
     id: 2,
-    title: "Mobile App Dev - JSM Tech",
-    company: "JSM Tech",               // ✅ new
-    period: "May 2023 - Aug 2023",     // ✅ new
-    description: "Designed and developed mobile app for both iOS & Android platforms using React Native.", // ✅ renamed
+    title: "ReactJS Developer",
+    company: "KodeHauz Solutions Planet Ltd, Akwa Ibom State Nigeria  — ReactJs Developer(INTERNSHIP)",
+    link:"https://kode.camp/",           
+    period: "Sept 2021 – July  2022",     
+    description: "Contributed to building a ReactJS-based LMS, improving responsiveness and navigation, reducing bugs by 40%, and boosting user engagement with seamless, user-centric features.", 
     className: "md:col-span-2",
     thumbnail: "/exp2.svg",
   },
   {
+    id: 1,
+    title: "Trig8 Limited, Nigeria — Reactjs Developer (freelancing/contract)",
+    company: "trig8Ltd",
+    link:"trig8.com",
+    period: "October 2023 - Contract",                   
+    description: "Enhanced website performance with Next.js SSR, cutting load times by 50%, boosting organic traffic by 25%, and driving a 15% increase in online sales conversions.", 
+    className: "md:col-span-2",
+  },
+  {
     id: 3,
-    title: "Freelance App Dev Project",
-    company: "Freelance",              // ✅ new
-    period: "Sep 2023 - Dec 2023",     // ✅ new
-    description: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.", // ✅ renamed
+    title: "FrontEnd Developer",
+    company: "PCDF| Prince Orji Foundation",              // ✅ new
+    link:"https://www.pcdfafrica.org",
+    period: "April 2024 - Volunteer",     // ✅ new
+    description: "Developed the official website for Prince Orji Development Foundation (PCDF), building it from the ground up to support their mission of helping children access education.", // ✅ renamed
     className: "md:col-span-2",
     thumbnail: "/exp3.svg",
   },
-  {
-    id: 4,
-    title: "Lead Frontend Developer",
-    company: "Startup XYZ",            // ✅ new
-    period: "Jan 2024 - Present",      // ✅ new
-    description: "Developed and maintained user-facing features using modern frontend technologies.", // ✅ renamed
-    className: "md:col-span-2",
-    thumbnail: "/exp4.svg",
-  },
+  
 ];
 
 

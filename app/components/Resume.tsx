@@ -94,7 +94,7 @@ const Resume = () => {
                             <h3 className="text-xl font-medium text-blue-600 mb-1 relative before:bg-[#2e344e] before:absolute before:content-[''] before:h-[0.12rem] before:w-[40px] before:-left-14 before:top-1/2">
                               {exp.title}
                             </h3>
-                            <h4 className="text-md font-medium text-white mb-2">{exp.company}</h4>
+                            <Link href={exp.link} className="text-md font-medium text-white mb-2">{exp.company}</Link>
                             <p className="text-[#6b9acc]">{exp.description}</p>
                           </div>
                         </div>

@@ -19,7 +19,6 @@ const RecentProjects = () => {
             <Link href={item.link}>
             <PinContainer
               title={item.title}
-              href="https://twitter.com/rajisanjo"
             >
               <div className="relative flex items-center justify-center sm:w-[30.4rem] w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
                 <div
