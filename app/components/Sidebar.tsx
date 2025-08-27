@@ -74,15 +74,15 @@ function SidebarContent() {
       <Link
         href="/"
         onClick={handleNavClick}
-        className="mt-10 flex flex-col items-center justify-center bg-white w-[178px] h-[178px] rounded-[50%]"
+        className="mt-10 flex flex-col items-center justify-center bg-white w-[170px] h-[170px] rounded-[50%]"
       >
         <Image
           src="/raji-sarafadeen.png"
           alt="Raji Sarafadeen, Web Dev"
-          width={170}
-          height={170}
+          width={162}
+          height={162}
           className="rounded-[50%]"
-          style={{ width: "170px", height: "170px" }}
+          style={{ width: "162px", height: "162px" }}
         />
       </Link>
 

@@ -135,21 +135,21 @@ const About = () => {
             </div>
           </div>
     
-          <div className="relative overflow-hidden w-full mb-20">
+          <div className="relative overflow-hidden w-full">
             <h1 className="text-6xl lg:text-7xl font-bold absolute top-20 lg:top-40 left-0 opacity-5 text-gray-400">REVIEWS</h1>
-              <div className="w-[243px] mt-10 lg:mt-28 mb-20">
-               <h1 className="relative leading-tight text-4xl lg:text-5xl font-semibold">
-                REVIEWS
-                </h1>
-                <div className="
-                        w-[50%] h-[0.4rem] 
-                        bg-[#0c3360] 
-                        rounded-[10px] 
-                        mt-4
-                        relative before:absolute before:top before:left-0 before:w-1/2 before:h-[0.4rem] before:rounded-[10px] before:bg-[#037fff] before:content-['']
-                        ">
-               </div>
-              </div>
+                  <div className="w-[243px] mt-10 lg:mt-28 mb-20">
+                  <h1 className="relative leading-tight text-4xl lg:text-5xl font-semibold">
+                    REVIEWS
+                    </h1>
+                    <div className="
+                            w-[50%] h-[0.4rem] 
+                            bg-[#0c3360] 
+                            rounded-[10px] 
+                            mt-4
+                            relative before:absolute before:top before:left-0 before:w-1/2 before:h-[0.4rem] before:rounded-[10px] before:bg-[#037fff] before:content-['']
+                            ">
+                  </div>
+                  </div>
                </div>
                <TestimonialCarousel/>
               </div>
