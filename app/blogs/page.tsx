@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   description: 'Technical articles and thoughts',
 };
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function BlogListPage() {
   try {
     const response = await databases.listDocuments(
