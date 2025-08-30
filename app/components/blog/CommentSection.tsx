@@ -134,7 +134,7 @@ export default function CommentSection({ blogId, initialComments }: CommentSecti
           <div className="mb-2">
             <div className="flex gap-2">
               <div className="flex items-center gap-2 mb-4">
-                <div className="grid place-content-center font-bold h-[40px] w-[40px] bg-blue-500 rounded-full text-white">
+                <div className="grid place-content-center font-bold h-[40px] w-[40px] bg-blue-500 rounded-md text-white">
                   <h3>{(user?.name?.trim() || user?.email.split('@')[0] || 'U')[0]}</h3>
                 </div>
                 <h3 className="text-white text-xs font-bold">

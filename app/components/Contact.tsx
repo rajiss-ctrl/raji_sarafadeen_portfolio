@@ -16,7 +16,7 @@ const Contact = () => {
   return (
     <div onClick={handleNavClick}>
     <h1 className="lg:pl-[19%] text-6xl lg:text-7xl font-bold absolute top-40 left-0 opacity-5 text-gray-400">CONTACT ME</h1>
-          <div className="pl-4 lg:pl-0 lg:w-[320px]">
+          <div className="pl-4 lg:pl-0 lg:w-[330px]">
             <h1 className="font-manrope relative leading-tight text-3xl lg:text-5xl font-semibold">
               CONTACT ME
             </h1>

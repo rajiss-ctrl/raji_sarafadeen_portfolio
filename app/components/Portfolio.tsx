@@ -2,6 +2,8 @@
 import React from 'react'
 import { useSidebar } from '../context/SidebarContext';
 import RecentProjects from './RecentProjects';
+import Link from 'next/link';
+import { BiMessage } from 'react-icons/bi';
 
 const Portfolio = () => {
       const { setIsOpen } = useSidebar();
@@ -11,7 +13,11 @@ const Portfolio = () => {
         }
       };
   return (
-      <div onClick={handleNavClick} >
+      <div onClick={handleNavClick}  className='relative'>
+          <Link href="/contacts" className='fixed z-[100] right-4 top-4 flex gap-0.5 items-center text-white bg-[#191d2b] p-2 text-xs'>
+          <BiMessage size={26} className="text-[#6b9acc] font-light" /> 
+        <span>Contact Me</span>
+        </Link>
       <h1 className="lg:pl-[19%] text-6xl lg:text-7xl font-bold absolute top-40 left-0 opacity-5 text-gray-400">PORTFOLIO</h1>
           <div className="pl-4 lg:pl-0 lg:w-[320px]">
             <h1 className="font-manrope relative leading-tight text-3xl lg:text-5xl font-semibold">

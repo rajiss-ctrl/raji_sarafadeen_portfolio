@@ -5,6 +5,8 @@ import CommentSection from '@/app/components/blog/CommentSection';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { getBlogPost } from './data';
+import { FaArrowLeft } from 'react-icons/fa';
+import Link from 'next/link';
 
 interface Comment {
   $id: string;
@@ -115,15 +117,18 @@ export default async function BlogPage(props: Props) {
     };
 
     return (
-      <div className="min-h-screen text-white py-12 px-4 md:pl-[19%]">
+      <div className="min-h-screen relative text-white py-12 px-4 md:pl-[19%]">
+        <Link href='/blogs' className="fixed  bg-[#191d2b] p-2 left-[4%] lg:left-[21%] top-[0.18rem] lg:top-6">
+          <FaArrowLeft/>
+        </Link>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <article>
-            <header className="mb-8">
+            <header className="mt-6 mb-8">
               <h1 className="text-3xl font-bold mb-2">{blogPost.title}</h1>
               <div className="flex items-center text-sm text-gray-400">
                 <time dateTime={blogPost.$createdAt}>

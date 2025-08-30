@@ -1,10 +1,11 @@
 'use client'
 import React from 'react'
 import { useSidebar } from '../context/SidebarContext';
-import { BiCodeAlt, BiServer } from 'react-icons/bi';
+import { BiCodeAlt, BiMessage, BiServer } from 'react-icons/bi';
 import { MdPhoneIphone } from 'react-icons/md';
 import Image from 'next/image';
 import TestimonialCarousel from './TestimonialCarousel';
+import Link from 'next/link';
 
 const About = () => {
       const { setIsOpen } = useSidebar();
@@ -15,7 +16,10 @@ const About = () => {
       };
   return (
     <div onClick={handleNavClick} className='relative w-full lg:pt- p-4 lg:pl-[19%] text-white overflow-hidden'>
-          
+        <Link href="/contacts" className='absolute z-50 right-4 top-6 flex gap-0.5 items-center text-white bg-[#191d2b] p-2 text-xs'>
+          <BiMessage size={26} className="text-[#6b9acc] font-light" /> 
+        <span>Contact Me</span>
+        </Link>
           
           <div className="relative overflow-hidden w-full my-12 lg:my-20">
                 <h1 className="text-6xl lg:text-7xl font-bold absolute top-10 left-0 opacity-5 text-gray-400">About Me</h1>
