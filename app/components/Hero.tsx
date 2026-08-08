@@ -1,3 +1,4 @@
+// Hero.tsx - Purple theme
 'use client'
 import Link from 'next/link';
 import React from 'react';
@@ -8,19 +9,19 @@ import { useSidebar } from '../context/SidebarContext';
 
 const Hero = () => {
   const { setIsOpen } = useSidebar();
-   const handleNavClick = () => {
+  const handleNavClick = () => {
     if (typeof window !== "undefined" && window.innerWidth < 768) {
       setIsOpen(false);
     }
   };
-  // Animation variants with proper TypeScript typing
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.2,
+        delayChildren: 0.1
       }
     }
   };
@@ -35,83 +36,106 @@ const Hero = () => {
       rotateY: 0,
       opacity: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.7,
         ease: "easeOut"
       }
     }
   };
 
   const fadeUpVariants: Variants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.6,
+        duration: 0.5,
         ease: "easeOut"
       }
     }
   };
 
   return (
-    <header onClick={handleNavClick} className="relative h-screen overflow-hidden">
-        <Link href="/portfolio" className='absolute z-50 right-4 top-6 flex gap-0.5 items-center text-white bg-[#191d2b] p-2 text-xs'>
-        <BsBriefcase size={26} className="text-[#6b9acc] font-light" /> 
-        <span>Projects</span>
-        </Link>
-      {/* Background video */}
+    <section 
+      onClick={handleNavClick} 
+      className="relative w-full h-full min-h-screen md:min-h-0 overflow-hidden flex items-center justify-center"
+    >
+      <Link 
+        href="/portfolio" 
+        className="absolute z-50 right-6 top-6 flex items-center gap-1.5 text-white bg-[#1a1a2e] px-4 py-2.5 rounded-full text-sm font-medium border border-[#2d2d44] hover:border-[#7C3AED] transition-colors duration-300 group"
+      >
+        <BsBriefcase size={18} className="text-[#7C3AED] group-hover:text-[#8B5CF6] transition-colors" />
+        <span className="text-[#A8B2D1] group-hover:text-white transition-colors">Projects</span>
+      </Link>
+
       <video
         src="/bg_video.webm"
         autoPlay
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover opacity-20 z-[-1]"
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-10 z-[-1]"
       />
       
-      <div className="relative z-20 flex h-full">
+      <div className="relative z-20 w-full max-w-4xl mx-auto px-6 md:px-12 lg:px-20">
         <motion.div 
-          className="flex-1 px-4 lg:pl-[24%] lg:pr-20 text-white flex flex-col justify-center items-center"
+          className="text-white flex flex-col justify-center items-center text-center"
           initial="hidden"
           animate="visible"
           variants={containerVariants}
           style={{ perspective: '1000px' }}
         >
-          {/* Name with flip animation */}
           <motion.h1 
-            className="text-center text-3xl lg:text-5xl font-bold leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight"
             variants={flipVariants}
           >
-            <span>Hi, I am </span>  <br className='lg:hidden'/>
-            <span className="text-[#0365c7] lg:text-[#037fff] font-bold leading-tight">Raji Sarafadeen</span>
+            <span className="text-[#A8B2D1]">Hi, I am</span>
+            <br className="sm:hidden" />
+            <span className="text-[#7C3AED]"> Raji Sarafadeen</span>
           </motion.h1>
 
-          {/* Description with flip animation */}
           <motion.p 
-            className="mt-4 text-center leading-relaxed text-lg font-light text-[#6b9acc] lg:px-1"
+            className="mt-5 text-center leading-relaxed text-base sm:text-lg max-w-2xl mx-auto"
             variants={flipVariants}
           >
-            I&apos;m a <span className='text-[#037fff] font-bold'>Website</span> <span className='text-white font-bold'>Developer</span> specializing in ReactJS & NextJS. I design and build scalable web and mobile applications that help businesses grow, stand out, and solve complex challenges with smart, reliable solutions.
+            <span className="text-[#A8B2D1]">I'm a </span>
+            <span className="text-white font-semibold">Website Developer</span>
+            <span className="text-[#A8B2D1]"> who turns complex problems into </span>
+            <span className="text-[#A8B2D1] font-semibold">elegant, high-performance solutions</span>
+            <span className="text-[#A8B2D1]">. Specializing in ReactJS & NextJS, I build scalable web and mobile applications that drive business growth, enhance user experiences, and deliver measurable results.</span>
           </motion.p>
 
-          {/* Social links with fade up animation */}
           <motion.div 
-            className="flex gap-6 mt-6"
+            className="flex gap-5 mt-8"
             variants={fadeUpVariants}
           >
-            <Link href='https://github.com/rajiss-ctrl' className="w-[45px] h-[45px] p-3 flex justify-center items-center rounded-[50%] text-gray-400 border-2 border-gray-600 hover:border-[#037fff] hover:text-[#037fff]">
+            <Link 
+              href='https://github.com/rajiss-ctrl' 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-[52px] h-[52px] flex justify-center items-center rounded-full text-[#94A3B8] border-2 border-[#2d2d44] hover:border-[#7C3AED] hover:text-[#7C3AED] transition-all duration-300 hover:scale-110 hover:bg-[#7C3AED]/10"
+            >
               <BsGithub className="text-2xl" />
             </Link>
-            <Link href='https://www.linkedin.com/in/rajiss-buz-web-dev/' className="w-[45px] h-[45px] p-3 flex justify-center items-center rounded-[50%] text-gray-400 border-2 border-gray-600 hover:border-[#037fff] hover:text-[#037fff]">
+            <Link 
+              href='https://www.linkedin.com/in/rajiss-buz-web-dev/' 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-[52px] h-[52px] flex justify-center items-center rounded-full text-[#94A3B8] border-2 border-[#2d2d44] hover:border-[#7C3AED] hover:text-[#7C3AED] transition-all duration-300 hover:scale-110 hover:bg-[#7C3AED]/10"
+            >
               <FaLinkedin className="text-2xl" />
             </Link>
-            <Link href='https://twitter.com/rajisanjo' className="w-[45px] h-[45px] p-3 flex justify-center items-center rounded-[50%] text-gray-400 border-2 border-gray-600 hover:border-[#037fff] hover:text-[#037fff]">
+            <Link 
+              href='https://twitter.com/rajisanjo' 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-[52px] h-[52px] flex justify-center items-center rounded-full text-[#94A3B8] border-2 border-[#2d2d44] hover:border-[#7C3AED] hover:text-[#7C3AED] transition-all duration-300 hover:scale-110 hover:bg-[#7C3AED]/10"
+            >
               <BsTwitterX className="text-2xl" />
             </Link>
           </motion.div>
         </motion.div>
       </div>
-    </header>
+    </section>
   );
 };
 

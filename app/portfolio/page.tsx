@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 const page = () => {
   return (
-    <div className='py-32 lg:pl-[19%]'>
+    <div className='py-10 px-4 lg:pb-10  lg:px-12'>
       <Portfolio/>
     </div >
     

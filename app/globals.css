@@ -15,28 +15,32 @@
   }
 }
 
-
-
-
 :root {
   --custom-gradient: linear-gradient(to right, rgba(3, 0, 131, 1), rgba(1, 0, 59, 0.5));
+  --sidebar-width: 220px;
 }
 
-/* For elements that should use Bricolage */
-/* .font-bricolage {
-  font-family: var(--font-bricolage), sans-serif;
-} */
+/* ── Dot-grid hero background ── */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(100, 140, 180, 0.18) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
 .font-manrope {
   font-family: var(--font-manrope), sans-serif;
 }
 
-/* .font-inter{
-  font-family: var(--font-inter), sans-serif;
-} */
+.font-jakarta {
+  font-family: var(--font-jakarta), sans-serif;
+}
 
-/* This will be inherited by most text elements */
+/* Body uses Manrope; headings default to Plus Jakarta Sans */
 body {
   font-family: var(--font-manrope), sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-jakarta), sans-serif;
 }
 /* Scrollbar Styling */
 /* Works on Chrome, Edge, and Safari */
@@ -108,4 +112,33 @@ html {
   padding-left: 1rem;
   margin: 1rem 0;
   color: #666;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Optional: Custom scrollbar styling if you want to keep it but make it subtle */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background: #7C3AED;
+  border-radius: 10px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb:hover {
+  background: #8B5CF6;
 }

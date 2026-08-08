@@ -7,46 +7,64 @@ import { useSidebar } from "../context/SidebarContext";
 import Link from "next/link";
 import Image from "next/image";
 
-
 const Sidebar = () => {
   const { isOpen, toggleSidebar, setIsOpen } = useSidebar();
 
   return (
     <>
-      {/* Desktop sidebar: always visible */}
-      <aside className="hidden border-r-[1.8px] border-gray-700 md:flex fixed top-0 left-0 w-[18%] z-30 h-screen bg-[#191d2b] text-white py-8 flex-col justify-between items-center">
-        <SidebarContent />
-      </aside>
+      {/* Desktop sidebar - floating with purple gradient border */}
+      <div className="hidden md:block fixed top-3 left-3 z-30 h-[calc(100vh-24px)] w-[220px] rounded-3xl shadow-2xl shadow-black/40">
+        <div 
+          className="w-full h-full rounded-3xl p-[3px]"
+          style={{
+            background: 'linear-gradient(135deg, #7C3AED 0%, #7C3AED 25%, transparent 65%, transparent 100%)'
+          }}
+        >
+          <aside className="w-full h-full bg-[#0d1520] rounded-3xl text-white flex flex-col justify-between items-center py-8">
+            <SidebarContent />
+          </aside>
+        </div>
+      </div>
 
       {/* Mobile toggle button */}
       <button
         onClick={toggleSidebar}
         className={`${isOpen ? "hidden" : "flex"}
-          justify-between items-center border border-gray-700
-          md:hidden fixed z-50 top-4 left-0 p-2 text-white bg-[#191d2b] rounded`}
+          justify-center items-center border border-[#2d2d44]
+          md:hidden fixed z-50 top-4 left-4 p-2 text-white bg-[#0d1520] rounded-lg
+          hover:border-[#7C3AED] transition-colors duration-300`}
       >
-        <IoMdMenu size={30} />
+        <IoMdMenu size={28} className="text-[#A8B2D1]" />
       </button>
 
       {/* Mobile sidebar overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.aside
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ type: "tween", duration: 0.5, ease: [0.42, 0, 0.58, 1] }}
-            className="fixed top-0 left-0 z-40 w-3/4 h-screen bg-[#191d2b] text-white py-8 flex flex-col justify-between items-center md:hidden"
-          >
-            <SidebarContent />
-
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-4 -right-[47px] text-center p-1 text-[#879bb1] border border-gray-700 font-light bg-[#191d2b] rounded"
+          <div className="fixed top-3 left-3 z-40 w-[280px] h-[calc(100vh-24px)] rounded-3xl shadow-2xl shadow-black/40 md:hidden">
+            <div 
+              className="w-full h-full rounded-3xl p-[3px]"
+              style={{
+                background: 'linear-gradient(135deg, #7C3AED 0%, #7C3AED 25%, transparent 65%, transparent 100%)'
+              }}
             >
-              <IoMdClose size={40} />
-            </button>
-          </motion.aside>
+              <motion.aside
+                initial={{ x: "-100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "-100%" }}
+                transition={{ type: "tween", duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
+                className="w-full h-full bg-[#0d1520] rounded-3xl text-white flex flex-col justify-between items-center py-8 relative"
+              >
+                <SidebarContent />
+
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="absolute top-4 -right-[50px] w-12 h-12 flex items-center justify-center text-[#A8B2D1] border border-[#2d2d44] bg-[#0d1520] rounded-lg hover:border-[#7C3AED] hover:text-[#7C3AED] transition-colors"
+                >
+                  <IoMdClose size={32} />
+                </button>
+              </motion.aside>
+            </div>
+          </div>
         )}
       </AnimatePresence>
     </>
@@ -55,14 +73,9 @@ const Sidebar = () => {
 
 export default Sidebar;
 
-
-
-
-
 function SidebarContent() {
   const { setIsOpen } = useSidebar();
 
-  // Helper: close sidebar only on mobile
   const handleNavClick = () => {
     if (typeof window !== "undefined" && window.innerWidth < 768) {
       setIsOpen(false);
@@ -74,33 +87,37 @@ function SidebarContent() {
       <Link
         href="/"
         onClick={handleNavClick}
-        className="mt-10 flex flex-col items-center justify-center bg-white w-[170px] h-[170px] rounded-[50%]"
+        className="flex flex-col items-center justify-center"
       >
-        <Image
-          src="/raji-sarafadeen.png"
-          alt="Raji Sarafadeen, Web Dev"
-          width={162}
-          height={162}
-          className="rounded-[50%]"
-          style={{ width: "162px", height: "162px" }}
-        />
+        <div className="w-[140px] h-[140px] rounded-full border-4 border-[#2d2d44] overflow-hidden hover:border-[#7C3AED] transition-all duration-300">
+          <Image
+            src="/RajisSaraF-profile-image.png"
+            alt="Raji Sarafadeen, Website Developer"
+            width={140}
+            height={140}
+            className="w-full h-full object-cover"
+          />
+        </div>
       </Link>
 
-      <div className="w-full h-[0.8px] bg-gray-700 mt-5"></div>
+      <div className="w-[60%] h-[1px] bg-gradient-to-r from-transparent via-[#2d2d44] to-transparent mt-6"></div>
 
-      <div className="w-full flex flex-col text-center text-[#86a4c4] lg:px-1">
+      <nav className="w-full flex flex-col px-3 mt-4">
         <NavLink href="/" onClick={handleNavClick}>HOME</NavLink>
         <NavLink href="/about" onClick={handleNavClick}>ABOUT</NavLink>
         <NavLink href="/resume" onClick={handleNavClick}>RESUME</NavLink>
         <NavLink href="/portfolio" onClick={handleNavClick}>PORTFOLIO</NavLink>
         <NavLink href="/blogs" onClick={handleNavClick}>BLOGS</NavLink>
         <NavLink href="/contacts" onClick={handleNavClick}>CONTACTS</NavLink>
-      </div>
+      </nav>
 
       <div className="w-full">
-        <div className="w-full h-[0.8px] bg-gray-700 my-4"></div>
-        <p className="text-center px-10 text-gray-400 text-sm">
+        <div className="w-[60%] h-[1px] bg-gradient-to-r from-transparent via-[#2d2d44] to-transparent mx-auto mb-4"></div>
+        <p className="text-center text-[#64748B] text-xs font-light tracking-wider">
           © 2025 Raji Sarafadeen
+        </p>
+        <p className="text-center text-[#4a4a6a] text-[10px] mt-1 font-light">
+          Built with passion
         </p>
       </div>
     </>

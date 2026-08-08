@@ -1,31 +1,39 @@
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
+import { Manrope, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Sidebar from "./components/Sidebar";
 import { SidebarProvider } from "./context/SidebarContext";
 
 const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["300","400", "500", "700","800"],
+  weight: ["300", "400", "500", "700", "800"],
   variable: "--font-manrope",
+  display: "swap",
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-jakarta",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Raji Sarafadeen | ReactJS & Next.js Developer Portfolio ",
+    default: "Raji Sarafadeen | ReactJS & Next.js Developer Portfolio",
     template: "%s | ReactJS & Next.js Developer | Raji Sarafadeen",
   },
-  description: "Raji Sarafadeen's portfolio — ReactJS & Next.js Developer for web & mobile solutions.",
-  twitter: {
-    card: "summary_large_image",
-  },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  description:
+    "Raji Sarafadeen's portfolio — ReactJS & Next.js Developer for web & mobile solutions.",
+  twitter: { card: "summary_large_image" },
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+  ),
   openGraph: {
-    type: 'website',
-    siteName: 'Raji Sarafadeen Portfolio',
-    emails: ['omosanjos@hotmail.com'],
-  }
+    type: "website",
+    siteName: "Raji Sarafadeen Portfolio",
+    emails: ["omosanjos@hotmail.com"],
+  },
 };
 
 export default function RootLayout({
@@ -33,49 +41,47 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  
   return (
     <html
       lang="en"
-      className={`${manrope.variable} scroll-smooth`}
+      className={`${manrope.variable} ${plusJakartaSans.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>
-        {/* Facebook OAuth Meta Tags */}
         <meta property="fb:app_id" content={process.env.NEXT_PUBLIC_FACEBOOK_APP_ID} />
         <meta property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
-        
-        {/* Privacy Policy Link for Facebook Compliance */}
         <link rel="privacy-policy" href="/privacy" />
       </head>
-      
-       <SidebarProvider>
-      <body className="relative bg-[#0f172a] text-white overflow-x-hidden">
-        {/* Fixed Sidebar */}
-        <aside className="fixed top-0 left-0 z-20 h-screen">
+
+      <body className="bg-[#060d18] text-white overflow-x-hidden" suppressHydrationWarning>
+        <SidebarProvider>
           <Sidebar />
-        </aside>
 
-        {/* Decorative vertical lines */}
-        <div className="fixed top-0 left-0 w-full h-full flex justify-between z-0 pointer-events-none">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <div key={i} className="w-[2px] bg-[#191d2b] h-full"></div>
-          ))}
-        </div>
-
-        {/* Main content */}
-        <main className="w-full lg:pl-auto h-screen lg:overflow-y-auto relative z-10 ">
-          {/* Auth Success/Failure Toasts would appear here */}
-           
+          <main
+            className="
+              w-full min-h-screen bg-[#0a121f]
+              md:fixed md:top-3 md:bottom-3 md:right-3 md:left-[240px]
+              md:w-auto
+              md:min-h-0
+              md:rounded-2xl
+              md:border md:border-[#1a2a3a]/50
+              md:overflow-hidden
+              relative z-10
+              shadow-2xl shadow-black/20
+            "
+          >
+            {/* Scrollable content with hidden scrollbar */}
+            <div className="w-full h-full overflow-y-auto scrollbar-hide">
               {children}
-          {/* Privacy and Data Deletion Links (footer or hidden) */}
-          <div className="hidden">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/data-deletion">Data Deletion</a>
-          </div>
-        </main>
+            </div>
+
+            <div className="hidden" aria-hidden="true">
+              <a href="/privacy">Privacy Policy</a>
+              <a href="/data-deletion">Data Deletion</a>
+            </div>
+          </main>
+        </SidebarProvider>
       </body>
-      </SidebarProvider>
     </html>
   );
 }
