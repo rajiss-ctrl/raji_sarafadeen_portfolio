@@ -97,7 +97,7 @@ const Hero = () => {
             className="mt-5 text-center leading-relaxed text-base sm:text-lg max-w-2xl mx-auto"
             variants={flipVariants}
           >
-            <span className="text-[#A8B2D1]">I'm a </span>
+            <span className="text-[#A8B2D1]">I&apos;m a </span>
             <span className="text-white font-semibold">Website Developer</span>
             <span className="text-[#A8B2D1]"> who turns complex problems into </span>
             <span className="text-[#A8B2D1] font-semibold">elegant, high-performance solutions</span>

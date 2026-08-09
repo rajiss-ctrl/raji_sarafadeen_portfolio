@@ -16,7 +16,7 @@ const RecentProjects = () => {
     ? projects 
     : projects.filter(project => {
         // If project has category, use it, otherwise default to 'web'
-        const category = (project as any).category || 'web';
+        const category = (project as { category?: string }).category || 'web';
         return category === activeFilter;
       });
 
@@ -63,7 +63,7 @@ const RecentProjects = () => {
                   />
                   {/* Category Badge - use default if not exists */}
                   <span className="absolute top-2 right-2 z-20 text-[10px] bg-[#1a1a2e]/90 backdrop-blur-sm px-2 py-0.5 rounded-full text-[#A8B2D1] border border-[#2d2d44] capitalize">
-                    {(item as any).category || 'Web'}
+                    {(item as { category?: string }).category || 'Web'}
                   </span>
                 </div>
 

@@ -65,7 +65,7 @@ const About = () => {
             </h2>
             
             <p className='mt-3 md:mt-4 text-sm md:text-base text-[#A8B2D1] font-light leading-relaxed'>
-              I'm a Software Developer based in Nigeria, developing modern solutions with a customer-first approach. My passion lies in delivering seamless user experiences, ensuring web accessibility for all and building scalable optimized APIs.
+              I&apos;m a Software Developer based in Nigeria, developing modern solutions with a customer-first approach. My passion lies in delivering seamless user experiences, ensuring web accessibility for all and building scalable optimized APIs.
             </p>
             
             <ul className="mt-3 md:mt-4 text-sm md:text-base text-[#A8B2D1] font-light w-full space-y-2 md:space-y-2.5">

@@ -96,6 +96,7 @@ function SidebarContent() {
             width={140}
             height={140}
             className="w-full h-full object-cover"
+            priority
           />
         </div>
       </Link>

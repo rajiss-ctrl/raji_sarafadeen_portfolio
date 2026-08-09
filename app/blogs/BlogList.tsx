@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import AuthStatus from "../components/auth/AuthStatus";
 import BlogCard from "../components/blog/BlogCard";
 import Link from "next/link";
 import { BiMessage } from "react-icons/bi";
