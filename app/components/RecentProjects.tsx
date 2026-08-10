@@ -23,7 +23,7 @@ const RecentProjects = () => {
   return (
     <div className="w-full">
       {/* Filter Buttons */}
-      <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4 lg:mb-5">
+      <div className="flex flex-wrap gap-3 md:gap-2 mb-4 lg:mb-5">
         {filters.map((filter) => (
           <button
             key={filter}
@@ -43,7 +43,7 @@ const RecentProjects = () => {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-3.5 lg:gap-4 ml-0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-3.5 lg:gap-4 ml-0">
         {filteredProjects.map((item) => (
           <div
             className="group relative"

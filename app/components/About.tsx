@@ -16,7 +16,7 @@ const About = () => {
   };
   
   return (
-    <div onClick={handleNavClick} className="relative w-full min-h-screen p-3 md:p-4 lg:p-5 text-white overflow-y-auto">
+    <div onClick={handleNavClick} className="relative w-full min-h-screen p-4 lg:p-5 text-white overflow-y-auto">
       {/* Contact Me Button */}
       <Link 
         href="/contacts" 
@@ -27,7 +27,7 @@ const About = () => {
       </Link>
       
       {/* About Section */}
-      <div className="relative overflow-hidden w-full mt-2 md:mt-3 lg:mt-4">
+      <div className="relative overflow-hidden w-full mt-24 md:mt-3 lg:mt-4">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold absolute top-0 left-0 opacity-[0.04] text-white select-none">
           About Me
         </h1>
@@ -64,11 +64,11 @@ const About = () => {
               I am <span className='text-[#7C3AED]'>Raji Sarafadeen</span>
             </h2>
             
-            <p className='mt-3 md:mt-4 text-sm md:text-base text-[#A8B2D1] font-light leading-relaxed'>
+            <p className='mt-3 md:mt-4 text-base text-[#A8B2D1] font-light leading-relaxed'>
               Software Engineer with a relentless focus on user-centric architecture and high-performance API ecosystems. I transform complex business requirements into accessible, scalable web solutions that prioritize speed and inclusivity. Proven track record of reducing technical debt and optimizing backend response times to deliver measurable improvements in user retention and system reliability.
             </p>
             
-            <ul className="mt-3 md:mt-4 text-sm md:text-base text-[#A8B2D1] font-light w-full space-y-2 md:space-y-2.5">
+            <ul className="mt-3 md:mt-4 text-base text-[#A8B2D1] font-light w-full space-y-2 md:space-y-2.5">
               <li className="flex items-start gap-2">
                 <h3 className="text-xs md:text-sm text-white font-semibold w-[80px] md:w-[100px] flex-shrink-0">Full Name</h3>
                 <span className="text-[#64748B]">:</span>
@@ -80,7 +80,7 @@ const About = () => {
                 <span className="flex-1 text-[#A8B2D1]">English, Yoruba</span>
               </li>
               <li className="flex items-start gap-2">
-                <h3 className="text-xs md:text-sm text-white font-semibold w-[80px] md:w-[100px] flex-shrink-0">Email</h3>
+                <h3 className="text-sm text-white font-semibold w-[80px] md:w-[100px] flex-shrink-0">Email</h3>
                 <span className="text-[#64748B]">:</span>
                 <a 
                   href="mailto:omosanjos77@gmail.com" 
@@ -90,12 +90,12 @@ const About = () => {
                 </a>
               </li>
               <li className="flex items-start gap-2">
-                <h3 className="text-xs md:text-sm text-white font-semibold w-[80px] md:w-[100px] flex-shrink-0">Phone</h3>
+                <h3 className="text-sm text-white font-semibold w-[80px] md:w-[100px] flex-shrink-0">Phone</h3>
                 <span className="text-[#64748B]">:</span>
                 <span className="flex-1 text-[#A8B2D1] text-xs md:text-sm">+2347038699659</span>
               </li>
               <li className="flex items-start gap-2">
-                <h3 className="text-xs md:text-sm text-white font-semibold w-[80px] md:w-[100px] flex-shrink-0">Freelance</h3>
+                <h3 className="text-sm text-white font-semibold w-[80px] md:w-[100px] flex-shrink-0">Freelance</h3>
                 <span className="text-[#64748B]">:</span>
                 <span className="flex-1 text-[#10B981] font-medium text-xs md:text-sm">Available</span>
               </li>
@@ -116,7 +116,7 @@ const About = () => {
           SERVICES
         </h1>
         
-        <div className="relative z-10">
+        <div className="relative mt-10 md:mt-0 z-10">
           <div className="md:w-[240px] lg:w-[280px]">
             <h1 className="relative leading-tight text-2xl md:text-3xl lg:text-4xl font-semibold text-white">
               SERVICES
@@ -127,14 +127,14 @@ const About = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-5 mt-3 md:mt-4 lg:mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4 lg:gap-5 mt-3 md:mt-4 lg:mt-5">
           {/* Service Card 1 */}
           <div className="group bg-[#1a1a2e] border border-[#2d2d44] hover:border-[#7C3AED] rounded-xl p-4 md:p-5 lg:p-6 transition-all duration-500 hover:shadow-xl hover:shadow-[#7C3AED]/10 hover:-translate-y-1">
             <BiCodeAlt className="text-3xl md:text-4xl text-[#7C3AED] mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300" />
             <h3 className='relative font-light text-lg md:text-xl text-white mb-4 md:mb-5 before:content-[""] before:absolute before:-bottom-2 before:left-0 before:w-[30%] before:h-[2px] before:bg-[#7C3AED] before:rounded-full'>
               Web Development
             </h3>
-            <p className='text-[#94A3B8] text-xs md:text-sm leading-relaxed'>
+            <p className='text-[#94A3B8] text-sm leading-relaxed'>
               Builds dynamic, scalable web applications with the React ecosystem and Next.js framework.
             </p>
           </div>
@@ -145,7 +145,7 @@ const About = () => {
             <h3 className='relative font-light text-lg md:text-xl text-white mb-4 md:mb-5 before:content-[""] before:absolute before:-bottom-2 before:left-0 before:w-[30%] before:h-[2px] before:bg-[#7C3AED] before:rounded-full'>
               Mobile Application
             </h3>
-            <p className='text-[#94A3B8] text-xs md:text-sm leading-relaxed'>
+            <p className='text-[#94A3B8] text-sm leading-relaxed'>
               I build clean, native mobile apps for iOS and Android that feel intuitive and perform flawlessly.
             </p>
           </div>
@@ -156,7 +156,7 @@ const About = () => {
             <h3 className='relative font-light text-lg md:text-xl text-white mb-4 md:mb-5 before:content-[""] before:absolute before:-bottom-2 before:left-0 before:w-[30%] before:h-[2px] before:bg-[#7C3AED] before:rounded-full'>
               Virtual Private Server
             </h3>
-            <p className='text-[#94A3B8] text-xs md:text-sm leading-relaxed'>
+            <p className='text-[#94A3B8] text-sm leading-relaxed'>
               A rock-solid virtual server. Complete control, better performance than shared hosting, and easy scalability.
             </p>
           </div>
@@ -164,12 +164,12 @@ const About = () => {
       </div>
 
       {/* Reviews Section */}
-      <div className="relative overflow-hidden w-full mt-6 md:mt-8 lg:mt-10">
+      <div className="relative overflow-hidden w-full md:mt-8 lg:mt-10">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold absolute top-3 md:top-4 lg:top-5 left-0 opacity-[0.04] text-white select-none">
           REVIEWS
         </h1>
         
-        <div className="relative z-10">
+        <div className="relative mt-10 md:mt-0 z-10">
           <div className="md:w-[240px] lg:w-[280px]">
             <h1 className="relative leading-tight text-2xl md:text-3xl lg:text-4xl font-semibold text-white">
               REVIEWS

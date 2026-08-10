@@ -26,11 +26,11 @@ const Portfolio = () => {
 
       {/* Background heading */}
       <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold absolute top-16 md:top-20 lg:top-24 left-3 md:left-4 lg:left-6 opacity-[0.04] text-white select-none">
-        PORTFOLIO
+        Portfolio
       </h1>
 
       {/* Main content */}
-      <div className="relative z-10 max-w-7xl mx-auto pt-6 md:pt-8 lg:pt-12">
+      <div className="relative z-10 max-w-7xl mx-auto pt-10 md:pt-8 lg:pt-12">
         {/* Header */}
         <div className="md:w-[280px] lg:w-[320px]">
           <h1 className="font-jakarta relative leading-tight text-2xl md:text-3xl lg:text-5xl font-semibold text-white">
@@ -42,7 +42,7 @@ const Portfolio = () => {
         </div>
 
         {/* Projects Section */}
-        <div className="mt-10 lg:mt-4 md:mt-6 lg:mt-8">
+        <div className="mt-10 md:mt-6 lg:mt-8">
           <RecentProjects />
         </div>
       </div>

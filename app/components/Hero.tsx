@@ -85,7 +85,7 @@ const Hero = () => {
           style={{ perspective: '1000px' }}
         >
           <motion.h2 
-            className="text-sm text-[#A8B2D1] border border-1 border-[#000000] rounded-4xl p-2"
+            className="text-xs text-[#A8B2D1] border border-1 border-[#000000] rounded-4xl p-2"
             variants={flipVariants}
           >
            Your website is your best salesperson. Is it closing deals?

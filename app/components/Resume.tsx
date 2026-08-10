@@ -18,7 +18,7 @@ const Resume = () => {
   };
 
   return (
-    <div onClick={handleNavClick} className="relative w-full min-h-screen p-4 md:p-6 lg:p-8 text-white overflow-y-auto">
+    <div onClick={handleNavClick} className="relative w-full min-h-screen md:p-6 lg:p-8 text-white overflow-y-auto">
       {/* SECTION TO PRINT */}
       <div id="print-section" className="max-w-5xl mx-auto">
         {/* Header */}
@@ -55,7 +55,7 @@ const Resume = () => {
             </Link>
           </div>
 
-          <p className="text-[#94A3B8] mt-4 text-sm md:text-base font-light leading-relaxed">
+          <p className="text-[#94A3B8] mt-4 text-base font-light leading-relaxed">
            React & Next.js Specialist. I build web apps so fast, users never reach for the back button. With a relentless focus on Core Web Vitals, accessibility, and scalable architecture, I transform complex design systems into seamless, high-conversion digital products that actually drive growth—not just traffic.
           </p>
         </div>
@@ -66,7 +66,7 @@ const Resume = () => {
             My Skills
           </h1>
           
-          <div className="relative z-10">
+          <div className="relative mt-10 md:mt-0 z-10">
             <div className="md:w-[260px]">
               <h1 className="font-jakarta relative leading-tight text-2xl md:text-3xl lg:text-4xl font-semibold text-white">
                 MY SKILLS
@@ -102,7 +102,7 @@ const Resume = () => {
             My Resume
           </h1>
           
-          <div className="relative z-10">
+          <div className="relative mt-10 md:mt-0 z-10">
             <div className="md:w-[300px]">
               <h1 className="font-jakarta relative leading-tight text-2xl md:text-3xl lg:text-4xl font-semibold text-white">
                 MY RESUME
@@ -129,23 +129,23 @@ const Resume = () => {
                     {/* Timeline dot */}
                     <div className="absolute z-10 left-0 top-1.5 w-4 h-4 rounded-full bg-[#0a121f] border-2 border-[#7C3AED] shadow-lg shadow-[#7C3AED]/20"></div>
                     
-                    <h3 className="text-sm md:text-base text-[#A8B2D1] font-light lg:w-1/4 flex-shrink-0">
+                    <h3 className="text-base text-[#A8B2D1] font-light lg:w-1/4 flex-shrink-0">
                       {exp.period}
                     </h3>
                     
                     <div className="lg:w-3/4">
-                      <h4 className="text-base md:text-lg font-semibold text-[#7C3AED] mb-0.5">
+                      <h4 className="text-xl md:text-lg font-semibold text-[#7C3AED] mb-0.5">
                         {exp.title}
                       </h4>
                       <Link 
                         href={exp.link} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="text-sm md:text-base font-medium text-white hover:text-[#7C3AED] transition-colors duration-300 inline-block"
+                        className="text-base md:text-base font-medium text-white hover:text-[#7C3AED] transition-colors duration-300 inline-block"
                       >
                         {exp.company}
                       </Link>
-                      <p className="text-[#94A3B8] text-sm md:text-base font-light mt-1 leading-relaxed">
+                      <p className="text-[#94A3B8] text-base font-light mt-1 leading-relaxed">
                         {exp.description}
                       </p>
                     </div>
@@ -157,7 +157,7 @@ const Resume = () => {
         </div>
 
         {/* EDUCATION */}
-        <div className="relative overflow-hidden w-full mt-6 md:mt-8 lg:mt-10 pb-8 md:pb-12">
+        <div className="relative overflow-hidden w-full mt-14 md:mt-8 lg:mt-10 pb-8 md:pb-12">
           <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center gap-3 text-white">
             <BiBook size={24} className="text-[#7C3AED]" />
             <span>Educational Qualifications</span>
@@ -181,10 +181,10 @@ const Resume = () => {
                     <h4 className="text-base md:text-lg font-semibold text-[#7C3AED] mb-0.5">
                       {edu.title}
                     </h4>
-                    <h5 className="text-sm md:text-base font-medium text-white">
+                    <h5 className="text-base font-medium text-white">
                       {edu.school}
                     </h5>
-                    <p className="text-[#94A3B8] text-sm md:text-base font-light mt-1 leading-relaxed">
+                    <p className="text-[#94A3B8] text-base font-light mt-1 leading-relaxed">
                       {edu.description}
                     </p>
                   </div>

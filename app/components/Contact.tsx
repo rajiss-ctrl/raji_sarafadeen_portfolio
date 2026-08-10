@@ -56,12 +56,12 @@ const Contact = () => {
   return (
     <div onClick={handleNavClick} className="relative w-full min-h-screen p-3 md:p-4 lg:p-5 text-white overflow-y-auto">
       {/* Background heading */}
-      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold absolute top-6 md:top-8 lg:top-10 left-2 md:left-3 opacity-[0.04] text-white select-none">
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold absolute top-8 lg:top-10 left-2 md:left-3 opacity-[0.04] text-white select-none">
         CONTACT ME
       </h1>
 
       {/* Main content */}
-      <div className="relative z-10 max-w-7xl mx-auto pt-3 md:pt-4 lg:pt-5">
+      <div className="relative z-10 max-w-7xl mx-auto pt-6 md:pt-4 lg:pt-5">
         {/* Header */}
         <div className="md:w-[240px] lg:w-[280px]">
           <h1 className="font-jakarta relative leading-tight text-2xl md:text-3xl lg:text-4xl font-semibold text-white">
@@ -73,7 +73,7 @@ const Contact = () => {
         </div>
 
         {/* Contact Content */}
-        <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-10 mt-4 md:mt-5 lg:mt-6">
+        <div className="flex flex-col lg:flex-row gap-6 md:gap-8 lg:gap-10 mt-14 md:mt-5 lg:mt-6">
           {/* Form */}
           <form onSubmit={handleSubmit} className="lg:w-1/2">
             <h4 className="text-xl md:text-2xl font-semibold text-white mb-4 md:mb-6">
@@ -85,7 +85,7 @@ const Contact = () => {
               <div className="relative w-full">
                 <label
                   htmlFor="name"
-                  className="absolute -top-2 left-3 px-2 bg-[#0a121f] text-xs md:text-sm text-[#A8B2D1] z-10"
+                  className="absolute -top-2 left-3 px-2 bg-[#0a121f] text-sm text-[#A8B2D1] z-10"
                 >
                   Enter your Name*
                 </label>
@@ -104,7 +104,7 @@ const Contact = () => {
               <div className="relative w-full">
                 <label
                   htmlFor="email"
-                  className="absolute -top-2 left-3 px-2 bg-[#0a121f] text-xs md:text-sm text-[#A8B2D1] z-10"
+                  className="absolute -top-2 left-3 px-2 bg-[#0a121f] text-sm text-[#A8B2D1] z-10"
                 >
                   Enter your Email*
                 </label>
@@ -123,7 +123,7 @@ const Contact = () => {
               <div className="relative w-full">
                 <label
                   htmlFor="subject"
-                  className="absolute -top-2 left-3 px-2 bg-[#0a121f] text-xs md:text-sm text-[#A8B2D1] z-10"
+                  className="absolute -top-2 left-3 px-2 bg-[#0a121f] text-sm text-[#A8B2D1] z-10"
                 >
                   Enter your Subject*
                 </label>
@@ -142,7 +142,7 @@ const Contact = () => {
               <div className="relative w-full">
                 <label
                   htmlFor="message"
-                  className="absolute -top-2 left-3 px-2 bg-[#0a121f] text-xs md:text-sm text-[#A8B2D1] z-10"
+                  className="absolute -top-2 left-3 px-2 bg-[#0a121f] text-sm text-[#A8B2D1] z-10"
                 >
                   Enter your Message*
                 </label>
@@ -213,14 +213,14 @@ const Contact = () => {
           </form>
 
           {/* Contact Info */}
-          <div className="lg:w-1/2 space-y-3 md:space-y-4">
+          <div className="mt-10 md:mt-0 lg:w-1/2 space-y-3 md:space-y-4">
             {/* Phone */}
             <div className="flex items-start gap-3 md:gap-4 bg-[#1a1a2e] border border-[#2d2d44] rounded-xl p-4 md:p-5 lg:p-6 hover:border-[#7C3AED] transition-all duration-300 hover:shadow-lg hover:shadow-[#7C3AED]/10">
               <div className="flex-shrink-0 bg-[#7C3AED]/10 rounded-lg p-3 md:p-4">
                 <FiPhone className="text-[#7C3AED] text-xl md:text-2xl" />
               </div>
               <div>
-                <p className="text-xs md:text-sm text-[#A8B2D1] font-medium uppercase tracking-wider">Phone</p>
+                <p className="text-sm text-[#A8B2D1] font-medium uppercase tracking-wider">Phone</p>
                 <Link href="tel:+2347038699659" className="text-[#94A3B8] hover:text-[#7C3AED] transition-colors duration-300 text-sm md:text-base block">
                   +234-703-8699-659
                 </Link>
@@ -236,7 +236,7 @@ const Contact = () => {
                 <FiMail className="text-[#7C3AED] text-xl md:text-2xl" />
               </div>
               <div>
-                <p className="text-xs md:text-sm text-[#A8B2D1] font-medium uppercase tracking-wider">Email</p>
+                <p className="text-sm text-[#A8B2D1] font-medium uppercase tracking-wider">Email</p>
                 <Link href="mailto:omosanjos77@gmail.com" className="text-[#94A3B8] hover:text-[#7C3AED] transition-colors duration-300 text-sm md:text-base block break-all">
                   omosanjos77@gmail.com
                 </Link>
@@ -252,7 +252,7 @@ const Contact = () => {
                 <BsGeoAlt className="text-[#7C3AED] text-xl md:text-2xl" />
               </div>
               <div>
-                <p className="text-xs md:text-sm text-[#A8B2D1] font-medium uppercase tracking-wider">Address</p>
+                <p className="text-sm text-[#A8B2D1] font-medium uppercase tracking-wider">Address</p>
                 <p className="text-[#94A3B8] text-sm md:text-base leading-relaxed">
                   11 Akapoti Street, Olunlade, <br />
                   Ilorin, Kwara State Nigeria

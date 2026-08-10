@@ -40,20 +40,20 @@ const Sidebar = () => {
       {/* Mobile sidebar overlay */}
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed top-3 left-3 z-40 w-[280px] h-[calc(100vh-24px)] rounded-3xl shadow-2xl shadow-black/40 md:hidden">
-            <div 
-              className="w-full h-full rounded-3xl p-[3px]"
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ type: "tween", duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
+            className="fixed top-3 left-3 z-40 w-[280px] rounded-3xl shadow-2xl shadow-black/40 md:hidden"
+          >
+            <div
+              className="w-full rounded-3xl p-[3px]"
               style={{
                 background: 'linear-gradient(135deg, #7C3AED 0%, #7C3AED 25%, transparent 65%, transparent 100%)'
               }}
             >
-              <motion.aside
-                initial={{ x: "-100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "-100%" }}
-                transition={{ type: "tween", duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
-                className="w-full h-full bg-[#0d1520] rounded-3xl text-white flex flex-col justify-between items-center py-8 relative"
-              >
+              <aside className="w-full bg-[#0d1520] rounded-3xl text-white flex flex-col items-center py-3 relative">
                 <SidebarContent />
 
                 <button
@@ -62,9 +62,9 @@ const Sidebar = () => {
                 >
                   <IoMdClose size={32} />
                 </button>
-              </motion.aside>
+              </aside>
             </div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </>
@@ -100,10 +100,11 @@ function SidebarContent() {
           />
         </div>
       </Link>
+      <div className="text-[#64748B] text-sm mt-10 md:mt-0">Raji Sarafdeen</div>
 
-      <div className="w-[60%] h-[1px] bg-gradient-to-r from-transparent via-[#2d2d44] to-transparent mt-6"></div>
+      <div className="w-[60%] h-[1px] bg-gradient-to-r from-transparent via-[#2d2d44] to-transparent mt-2"></div>
 
-      <nav className="w-full flex flex-col px-3 mt-4">
+      <nav className="w-full flex flex-col px-3 mt-24 md:mt-4">
         <NavLink href="/" onClick={handleNavClick}>HOME</NavLink>
         <NavLink href="/about" onClick={handleNavClick}>ABOUT</NavLink>
         <NavLink href="/resume" onClick={handleNavClick}>RESUME</NavLink>
@@ -112,7 +113,7 @@ function SidebarContent() {
         <NavLink href="/contacts" onClick={handleNavClick}>CONTACTS</NavLink>
       </nav>
 
-      <div className="w-full">
+      <div className="w-full mt-24 md:mt-0">
         <div className="w-[60%] h-[1px] bg-gradient-to-r from-transparent via-[#2d2d44] to-transparent mx-auto mb-4"></div>
         <p className="text-center text-[#64748B] text-xs font-light tracking-wider">
           © 2025 Raji Sarafadeen
