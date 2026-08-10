@@ -7,9 +7,9 @@ import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 const cards = [
   { 
     id: 1, 
-    name: 'Mr. Orji', 
-    role: 'Client', 
-    text: "PCDF is thrilled with our new website. The clean design makes our work shine, and it's now incredibly easy for people to get involved and donate. We highly recommend Mr. Raji for your website development." 
+    name: 'Prince Orji  (PCDF)', 
+    role: 'Strategy & Growth Leader | Scaling Businesses', 
+    text: "Mr. Raji worked on rebuilding a seamless website for Prince Child Development Foundation. Load time was faster, pages were more responsive but more importantly he is always available to listen to your suggestions and apply his expertise to satisfy the vision you have. I recommend him to anyone looking for someone stressless to work with on a website" 
   },
   { 
     id: 2, 

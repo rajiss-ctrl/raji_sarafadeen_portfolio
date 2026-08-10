@@ -84,12 +84,19 @@ const Hero = () => {
           variants={containerVariants}
           style={{ perspective: '1000px' }}
         >
+          <motion.h2 
+            className="text-sm text-[#A8B2D1] border border-1 border-[#000000] rounded-4xl p-2"
+            variants={flipVariants}
+          >
+           Your website is your best salesperson. Is it closing deals?
+          </motion.h2>
+
           <motion.h1 
             className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight"
             variants={flipVariants}
           >
             <span className="text-[#A8B2D1]">Hi, I am</span>
-            <br className="sm:hidden" />
+            {/* <br className="sm:hidden lg:block" /> */}
             <span className="text-[#7C3AED]"> Raji Sarafadeen</span>
           </motion.h1>
 
@@ -98,10 +105,10 @@ const Hero = () => {
             variants={flipVariants}
           >
             <span className="text-[#A8B2D1]">I&apos;m a </span>
-            <span className="text-white font-semibold">Website Developer</span>
-            <span className="text-[#A8B2D1]"> who turns complex problems into </span>
-            <span className="text-[#A8B2D1] font-semibold">elegant, high-performance solutions</span>
-            <span className="text-[#A8B2D1]">. Specializing in ReactJS & NextJS, I build scalable web and mobile applications that drive business growth, enhance user experiences, and deliver measurable results.</span>
+            <span className="text-white font-semibold">Website Developer.</span>
+            <span className="text-[#A8B2D1]"> I use React and Next.js to turn bloated web apps into lean, lightning-fast revenue engines. </span>
+            <span className="text-[#A8B2D1] font-semibold"> From pixel-perfect UI to rock-solid backend integrations, I build the full-stack solutions that founders rely on to scale.</span>
+            <span className="text-[#A8B2D1]">. Let's make your digital presence work as hard as you do.</span>
           </motion.p>
 
           <motion.div 

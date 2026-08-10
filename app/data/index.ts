@@ -1,15 +1,24 @@
 
 export const projects = [
-  // {
-  //   id: 1,
-  //   title: "3D Solar System Planets to Explore",
-  //   des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-  //   img: "/p1.svg",
-  //   iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-  //   link: "https://github.com/adrianhajdin?tab=repositories",
-  // },
-  {
-    id: 2,
+  
+    {
+      id: 2,
+      title: "PCDF, Prince Child Development Foundation",
+      des: "A responsive website for the Prince Child Development Foundation, designed to amplify their mission of supporting children's education, increase online donations, and attract volunteers through a clear and compelling narrative.",
+      img: "/pcdf.png",
+      iconLists: ["/re.svg", "/tail.svg"],
+      link: "https://www.pcdfafrica.org",
+    },
+    {
+    id: 3,
+    title: "Stock Management Web App",
+    des: "A dynamic stock tracking dashboard that allows users to monitor real-time and prices, build personalized watchlists, and visualize performance trends.",
+    img: "/stock.png",
+    iconLists: ["/re.svg", "/tail.svg"],
+    link: "https://proinventory-two.vercel.app/",
+  },
+    {
+      id: 4,
     title: "Proprietory Firm",
     des: "A responsive, high-conversion lead prop firm platform built with Next.js.",
     img: "/nextlevel_project.png",
@@ -17,7 +26,7 @@ export const projects = [
     link: "https://trig8ltd-nextlevelfunding-fxg4z5xsi-rajiss-ctrl.vercel.app/",
   },
   {
-    id: 3,
+    id: 5,
     title: "OTBSolutions | IT Services",
     des: "I help brands grow with OTB’s elevated IT services, building clean, high-performing websites, and tailored digital solutions.",
     img: "/otb.png",
@@ -25,7 +34,7 @@ export const projects = [
     link: "https://www.otbsolutions.co.uk",
   },
   {
-    id: 4,
+    id: 6,
     title: "CFFX, Forex Trader",
     des: "Built CFFX’s trading platform website—designed for clarity, trust, and user engagement. Showcasing strategies for GBPJPY & US30 to help traders achieve predictable profits.",
     img: "/cffx.png",
@@ -33,29 +42,14 @@ export const projects = [
     link: "https://www.cffx.co.uk",
   },
   {
-    id: 5,
-    title: "PCDF, Prince Child Development Foundation",
-    des: "A responsive website for the Prince Child Development Foundation, designed to amplify their mission of supporting children's education, increase online donations, and attract volunteers through a clear and compelling narrative.",
-    img: "/pcdf.png",
-    iconLists: ["/re.svg", "/tail.svg"],
-    link: "https://www.pcdfafrica.org",
-  },
-  {
-    id: 6,
+    id: 7,
     title: "Skin Care E-Commerce shop",
     des: "A modern, responsive skincare online store built with React and Node.js, featuring a secure Stripe payment gateway, user accounts, and an admin dashboard for product management.",
     img: "/skcare.png",
     iconLists: ["/re.svg","tail.svg"],
     link: "https://github.com/rajiss-ctrl/skcare-app",
   },
-  {
-    id: 7,
-    title: "Stock Management Web App",
-    des: "A dynamic stock tracking dashboard that allows users to monitor real-time and prices, build personalized watchlists, and visualize performance trends.",
-    img: "/stock.png",
-    iconLists: ["/re.svg", "/tail.svg"],
-    link: "https://stocktrack-psmi.vercel.app/",
-  },
+  
 ];
 
 export const testimonials = [
@@ -99,7 +93,7 @@ export const workExperience = [
     company: "KodeHauz Solutions Planet Ltd, Akwa Ibom State Nigeria  — ReactJs Developer(INTERNSHIP)",
     link:"https://kode.camp/",           
     period: "Sept 2021 – July  2022",     
-    description: "Contributed to building a ReactJS-based LMS, improving responsiveness and navigation, reducing bugs by 40%, and boosting user engagement with seamless, user-centric features.", 
+    description: "Reduced production bugs by 40% by architecting a responsive, navigation-driven ReactJS LMS. Engineered seamless user flows that boosted engagement, improved retention, and delivered a frictionless learning experience for thousands of users.", 
     className: "md:col-span-2",
     thumbnail: "/exp2.svg",
   },
@@ -109,7 +103,7 @@ export const workExperience = [
     company: "trig8Ltd",
     link:"https://www.trig8.com",
     period: "October 2023 - Contract",                   
-    description: "Enhanced website performance with Next.js SSR, cutting load times by 50%, boosting organic traffic by 25%, and driving a 15% increase in online sales conversions.", 
+    description: "Drove a 15% increase in online sales conversions by implementing Next.js Server-Side Rendering (SSR). Slashed page load times by 50%, boosted organic traffic by 25%, and delivered a faster, more SEO-friendly web experience that directly impacted the bottom line.", 
     className: "md:col-span-2",
   },
   {
@@ -118,7 +112,7 @@ export const workExperience = [
     company: "PCDF| Prince Child Development Foundation",              // ✅ new
     link:"https://www.pcdfafrica.org",
     period: "April 2024 - Volunteer",     // ✅ new
-    description: "Developed the official website for Prince Orji Development Foundation (PCDF), building it from the ground up to support their mission of helping children access education.", // ✅ renamed
+    description: "Built the official PCDF website from the ground up—a fully responsive, high-performance platform designed to amplify their mission of providing education to underprivileged children. Engineered a seamless donation system and intuitive content management interface, enabling the foundation to scale outreach and double their applicant enrollment within the first quarter of launch.", 
     className: "md:col-span-2",
     thumbnail: "/exp3.svg",
   },

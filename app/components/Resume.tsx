@@ -56,7 +56,7 @@ const Resume = () => {
           </div>
 
           <p className="text-[#94A3B8] mt-4 text-sm md:text-base font-light leading-relaxed">
-            Frontend Web Developer specializing in ReactJS and Next.js — I build fast, scalable, and user-friendly web apps that help businesses grow.
+           React & Next.js Specialist. I build web apps so fast, users never reach for the back button. With a relentless focus on Core Web Vitals, accessibility, and scalable architecture, I transform complex design systems into seamless, high-conversion digital products that actually drive growth—not just traffic.
           </p>
         </div>
 

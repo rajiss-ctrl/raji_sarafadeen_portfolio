@@ -52,7 +52,7 @@ const About = () => {
                 src='/raji-sarafadeen.png' 
                 width={600} 
                 height={600} 
-                alt="Raji Sarafadeen, Web Dev" 
+                alt="Raji Sarafadeen || Website Developer" 
                 className='w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700'
               />
             </div>
@@ -65,7 +65,7 @@ const About = () => {
             </h2>
             
             <p className='mt-3 md:mt-4 text-sm md:text-base text-[#A8B2D1] font-light leading-relaxed'>
-              I&apos;m a Software Developer based in Nigeria, developing modern solutions with a customer-first approach. My passion lies in delivering seamless user experiences, ensuring web accessibility for all and building scalable optimized APIs.
+              Software Engineer with a relentless focus on user-centric architecture and high-performance API ecosystems. I transform complex business requirements into accessible, scalable web solutions that prioritize speed and inclusivity. Proven track record of reducing technical debt and optimizing backend response times to deliver measurable improvements in user retention and system reliability.
             </p>
             
             <ul className="mt-3 md:mt-4 text-sm md:text-base text-[#A8B2D1] font-light w-full space-y-2 md:space-y-2.5">
