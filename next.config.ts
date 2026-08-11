@@ -2,10 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: [
-      'res.cloudinary.com', // Cloudinary domain
-      // Add other domains if needed
-    ],
     // Optional: For more advanced configurations
     remotePatterns: [
       {
