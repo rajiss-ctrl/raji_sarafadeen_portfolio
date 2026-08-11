@@ -5,6 +5,7 @@ import { BsGeoAlt } from 'react-icons/bs';
 import { FiMail, FiPhone } from 'react-icons/fi';
 import { FaPaperPlane } from 'react-icons/fa';
 import Link from 'next/link';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { setIsOpen } = useSidebar();
@@ -35,18 +36,39 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
+    // ✅ EmailJS configuration
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+
+    // ✅ THIS IS WHERE YOU PUT THE templateParams
+    const templateParams = {
+      name: formData.name,           // Required for {{name}}
+      email: formData.email,         // Required for reply button {{email}}
+      subject: formData.subject,     // Optional - for your reference
+      message: formData.message,     // Required for {{message}}
+      time: new Date().toLocaleString('en-US', {
+        dateStyle: 'full',
+        timeStyle: 'long',
+        timeZone: 'Africa/Lagos'
+      })                             // Required for {{time}}
+    };
+
     try {
-      // Here you would send the email using your preferred service
-      // For example: EmailJS, SendGrid, or your own API
-      console.log('Form submitted:', formData);
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,  // ✅ Pass the templateParams here
+        publicKey
+      );
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      console.log('Email sent successfully:', response);
       
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error('Error sending email:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);

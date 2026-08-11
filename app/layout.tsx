@@ -44,7 +44,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${plusJakartaSans.variable} scroll-smooth`}
+      className={`${manrope.variable} ${plusJakartaSans.variable}`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>

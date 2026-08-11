@@ -45,7 +45,7 @@ const Sidebar = () => {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ type: "tween", duration: 0.4, ease: [0.42, 0, 0.58, 1] }}
-            className="fixed top-3 left-3 z-40 w-[280px] rounded-3xl shadow-2xl shadow-black/40 md:hidden"
+            className="fixed top-3 left-3 z-40 w-[230px] rounded-3xl shadow-2xl shadow-black/40 md:hidden"
           >
             <div
               className="w-full rounded-3xl p-[3px]"
@@ -100,11 +100,11 @@ function SidebarContent() {
           />
         </div>
       </Link>
-      <div className="text-[#64748B] text-sm mt-10 md:mt-0">Raji Sarafdeen</div>
+      <div className="text-[#64748B] text-sm mt-2 md:mt-0">Raji Sarafdeen</div>
 
       <div className="w-[60%] h-[1px] bg-gradient-to-r from-transparent via-[#2d2d44] to-transparent mt-2"></div>
 
-      <nav className="w-full flex flex-col px-3 mt-24 md:mt-4">
+      <nav className="w-full flex flex-col px-3 mt-3 md:mt-4">
         <NavLink href="/" onClick={handleNavClick}>HOME</NavLink>
         <NavLink href="/about" onClick={handleNavClick}>ABOUT</NavLink>
         <NavLink href="/resume" onClick={handleNavClick}>RESUME</NavLink>
@@ -113,10 +113,10 @@ function SidebarContent() {
         <NavLink href="/contacts" onClick={handleNavClick}>CONTACTS</NavLink>
       </nav>
 
-      <div className="w-full mt-24 md:mt-0">
+      <div className="w-full mt-4 md:mt-0">
         <div className="w-[60%] h-[1px] bg-gradient-to-r from-transparent via-[#2d2d44] to-transparent mx-auto mb-4"></div>
         <p className="text-center text-[#64748B] text-xs font-light tracking-wider">
-          © 2025 Raji Sarafadeen
+          © 2025 RajisSaraF.Dev
         </p>
         <p className="text-center text-[#4a4a6a] text-[10px] mt-1 font-light">
           Built with passion
