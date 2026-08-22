@@ -17,8 +17,16 @@ export const projects = [
     iconLists: ["/re.svg", "/tail.svg"],
     link: "https://proinventory-two.vercel.app/",
   },
+  {
+    id: 4,
+    title: "Skin Care E-Commerce shop",
+    des: "A modern, responsive skincare online store built with React and Node.js, featuring a secure Stripe payment gateway, user accounts, and an admin dashboard for product management.",
+    img: "/skcare.png",
+    iconLists: ["/re.svg","tail.svg"],
+    link: "https://skcare-app.vercel.app/",
+  },
     {
-      id: 4,
+      id: 5,
     title: "Proprietory Firm",
     des: "A responsive, high-conversion lead prop firm platform built with Next.js.",
     img: "/nextlevel_project.png",
@@ -26,7 +34,7 @@ export const projects = [
     link: "https://trig8ltd-nextlevelfunding-fxg4z5xsi-rajiss-ctrl.vercel.app/",
   },
   {
-    id: 5,
+    id: 6,
     title: "OTBSolutions | IT Services",
     des: "I help brands grow with OTB’s elevated IT services, building clean, high-performing websites, and tailored digital solutions.",
     img: "/otb.png",
@@ -34,20 +42,12 @@ export const projects = [
     link: "https://www.otbsolutions.co.uk",
   },
   {
-    id: 6,
+    id: 7,
     title: "CFFX, Forex Trader",
     des: "Built CFFX’s trading platform website—designed for clarity, trust, and user engagement. Showcasing strategies for GBPJPY & US30 to help traders achieve predictable profits.",
     img: "/cffx.png",
     iconLists: ["/re.svg", "/next.svg", "/tail.svg"],
     link: "https://www.cffx.co.uk",
-  },
-  {
-    id: 7,
-    title: "Skin Care E-Commerce shop",
-    des: "A modern, responsive skincare online store built with React and Node.js, featuring a secure Stripe payment gateway, user accounts, and an admin dashboard for product management.",
-    img: "/skcare.png",
-    iconLists: ["/re.svg","tail.svg"],
-    link: "https://github.com/rajiss-ctrl/skcare-app",
   },
   
 ];
