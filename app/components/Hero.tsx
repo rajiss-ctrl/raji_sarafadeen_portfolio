@@ -1,11 +1,79 @@
 // Hero.tsx - Purple theme
 'use client'
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsBriefcase, BsGithub, BsTwitterX } from 'react-icons/bs';
 import { FaLinkedin } from 'react-icons/fa';
 import { motion, Variants } from 'framer-motion';
 import { useSidebar } from '../context/SidebarContext';
+
+// ── Typewriter component ──────────────────────────────────────────────
+const PHRASES = [
+  "Your website is your best salesperson. Is it closing deals?",
+  "Fast. Scalable. Built to convert.",
+  "React & Next.js — engineered for performance.",
+  "Turning ideas into revenue-generating products.",
+  "Pixel-perfect UI. Rock-solid integrations.",
+];
+
+type Phase = 'typing' | 'pausing' | 'erasing' | 'waiting';
+
+function Typewriter({ speed = 45, eraseSpeed = 25, pauseMs = 2000, waitMs = 500 }: {
+  speed?: number;
+  eraseSpeed?: number;
+  pauseMs?: number;
+  waitMs?: number;
+}) {
+  const [displayed, setDisplayed] = useState('');
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [phase, setPhase] = useState<Phase>('waiting');
+
+  useEffect(() => {
+    const current = PHRASES[phraseIndex];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (phase === 'waiting') {
+      timeout = setTimeout(() => setPhase('typing'), waitMs);
+
+    } else if (phase === 'typing') {
+      if (displayed.length < current.length) {
+        timeout = setTimeout(() => {
+          setDisplayed(current.slice(0, displayed.length + 1));
+        }, speed);
+      } else {
+        timeout = setTimeout(() => setPhase('pausing'), pauseMs);
+      }
+
+    } else if (phase === 'pausing') {
+      timeout = setTimeout(() => setPhase('erasing'), 0);
+
+    } else if (phase === 'erasing') {
+      if (displayed.length > 0) {
+        timeout = setTimeout(() => {
+          setDisplayed(prev => prev.slice(0, -1));
+        }, eraseSpeed);
+      } else {
+        setPhraseIndex(i => (i + 1) % PHRASES.length);
+        setPhase('waiting');
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [phase, displayed, phraseIndex, speed, eraseSpeed, pauseMs, waitMs]);
+
+  const isTyping = phase === 'typing' || phase === 'pausing';
+
+  return (
+    <span>
+      {displayed}
+      <span
+        className={`inline-block w-[2px] h-[0.85em] bg-[#7C3AED] ml-[2px] align-middle transition-opacity duration-300 ${
+          isTyping ? 'opacity-100' : 'animate-pulse'
+        }`}
+      />
+    </span>
+  );
+}
 
 const Hero = () => {
   const { setIsOpen } = useSidebar();
@@ -84,12 +152,15 @@ const Hero = () => {
           variants={containerVariants}
           style={{ perspective: '1000px' }}
         >
-          <motion.h2 
-            className="text-xs text-[#A8B2D1] border border-1 border-[#000000] rounded-4xl p-2"
+          <motion.div
+            className="inline-flex items-center bg-[#7C3AED]/10 border border-[#7C3AED]/25 rounded-full px-4 py-2 mb-2"
             variants={flipVariants}
           >
-           Your website is your best salesperson. Is it closing deals?
-          </motion.h2>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED] mr-2.5 shrink-0 animate-pulse" />
+            <span className="text-xs text-[#A8B2D1] font-medium tracking-wide">
+              <Typewriter />
+            </span>
+          </motion.div>
 
           <motion.h1 
             className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight"

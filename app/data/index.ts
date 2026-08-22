@@ -1,22 +1,23 @@
 
 export const projects = [
-  
-    {
-      id: 2,
-      title: "PCDF, Prince Child Development Foundation",
-      des: "A responsive website for the Prince Child Development Foundation, designed to amplify their mission of supporting children's education, increase online donations, and attract volunteers through a clear and compelling narrative.",
-      img: "/pcdf.png",
-      iconLists: ["/re.svg", "/tail.svg"],
-      link: "https://www.pcdfafrica.org",
-    },
-    {
-    id: 3,
+  {
+    id: 2,
     title: "Stock Management Web App",
     des: "A dynamic stock tracking dashboard that allows users to monitor real-time and prices, build personalized watchlists, and visualize performance trends.",
     img: "/stock.png",
     iconLists: ["/re.svg", "/tail.svg"],
     link: "https://proinventory-two.vercel.app/",
   },
+  
+    {
+      id: 3,
+      title: "PCDF, Prince Child Development Foundation",
+      des: "A responsive website for the Prince Child Development Foundation, designed to amplify their mission of supporting children's education, increase online donations, and attract volunteers through a clear and compelling narrative.",
+      img: "/pcdf.png",
+      iconLists: ["/re.svg", "/tail.svg"],
+      link: "https://www.pcdfafrica.org",
+    },
+    
   {
     id: 4,
     title: "Skin Care E-Commerce shop",
