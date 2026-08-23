@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     "TypeScript projects",
     "full-stack developer projects",
   ],
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/portfolio`,
+  },
   openGraph: {
     title: "Portfolio — Raji Sarafadeen | React & Next.js Projects",
     description:

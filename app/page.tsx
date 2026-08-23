@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "JavaScript developer",
     "hire React developer",
   ],
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_SITE_URL,
+  },
   openGraph: {
     title: "Raji Sarafadeen | ReactJS & Next.js Developer",
     description:

@@ -18,6 +18,9 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const BASE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
   title: {
     default: "Raji Sarafadeen | ReactJS & Next.js Developer Portfolio",
@@ -25,10 +28,11 @@ export const metadata: Metadata = {
   },
   description:
     "Raji Sarafadeen's portfolio — ReactJS & Next.js Developer for web & mobile solutions.",
+  metadataBase: new URL(BASE_URL),
+  alternates: {
+    canonical: BASE_URL,
+  },
   twitter: { card: "summary_large_image" },
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
-  ),
   openGraph: {
     type: "website",
     siteName: "Raji Sarafadeen Portfolio",
@@ -52,6 +56,37 @@ export default function RootLayout({
         <meta property="fb:app_id" content={process.env.NEXT_PUBLIC_FACEBOOK_APP_ID} />
         <meta property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
         <link rel="privacy-policy" href="/privacy" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Raji Sarafadeen",
+              url: BASE_URL,
+              jobTitle: "ReactJS & Next.js Developer",
+              description:
+                "Frontend developer based in Nigeria, specialising in React, Next.js, and TypeScript.",
+              image: `${BASE_URL}/RajisSaraF-profile-image.png`,
+              email: "omosanjos@hotmail.com",
+              nationality: "Nigerian",
+              sameAs: [
+                "https://github.com/rajiss-ctrl",
+                "https://www.linkedin.com/in/rajiss-buz-web-dev/",
+                "https://twitter.com/rajisanjo",
+              ],
+              knowsAbout: [
+                "React",
+                "Next.js",
+                "TypeScript",
+                "TailwindCSS",
+                "Node.js",
+                "Frontend Development",
+                "Web Performance",
+              ],
+            }),
+          }}
+        />
       </head>
 
       <body className="bg-[#060d18] text-white overflow-x-hidden" suppressHydrationWarning>

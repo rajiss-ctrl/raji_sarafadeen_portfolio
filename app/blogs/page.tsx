@@ -3,8 +3,20 @@ import Link from "next/link";
 import { BiMessage } from "react-icons/bi";
 
 export const metadata: Metadata = {
-  title: "Blog | Raji Sarafadeen",
-  description: "Technical articles and thoughts from Raji Sarafadeen — coming soon.",
+  title: "Blog",
+  description:
+    "Technical articles and thoughts from Raji Sarafadeen on React, Next.js, performance, and building products — coming soon.",
+  keywords: [
+    "Raji Sarafadeen blog",
+    "React articles",
+    "Next.js tutorials",
+    "frontend development blog",
+    "web performance tips",
+    "JavaScript blog Nigeria",
+  ],
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/blogs`,
+  },
 };
 
 export default function BlogListPage() {

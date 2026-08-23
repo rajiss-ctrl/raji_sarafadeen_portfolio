@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     "web developer experience",
     "software engineer CV",
   ],
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/resume`,
+  },
   openGraph: {
     title: "Resume — Raji Sarafadeen | React & Next.js Developer",
     description:

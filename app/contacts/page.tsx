@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     "Next.js freelancer Nigeria",
     "get in touch web developer",
   ],
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/contacts`,
+  },
   openGraph: {
     title: "Contact Raji Sarafadeen | Hire a React & Next.js Developer",
     description:
