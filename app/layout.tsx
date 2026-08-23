@@ -32,6 +32,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: BASE_URL,
   },
+  verification: {
+    google: "1XjF1LYSQJf5Y0AahdnS35hnSSAnkT__jN1EraQo_tQ",
+  },
   twitter: { card: "summary_large_image" },
   openGraph: {
     type: "website",
