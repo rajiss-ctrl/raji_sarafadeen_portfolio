@@ -2,6 +2,7 @@
 'use client'
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { BsBriefcase, BsGithub, BsTwitterX } from 'react-icons/bs';
 import { FaLinkedin } from 'react-icons/fa';
 import { motion, Variants } from 'framer-motion';
@@ -153,10 +154,19 @@ const Hero = () => {
           style={{ perspective: '1000px' }}
         >
           <motion.div
-            className="inline-flex items-center bg-[#7C3AED]/10 border border-[#7C3AED]/25 rounded-full px-4 py-2 mb-2"
+            className="inline-flex items-center bg-[#7C3AED]/10  pl-1 pr-4 py-1 mb-2"
             variants={flipVariants}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED] mr-2.5 shrink-0 animate-pulse" />
+            <div className="w-7 h-7 rounded-full overflow-hidden mr-2.5 shrink-0 ring-1 ring-[#7C3AED]/40 bg-[#0d1520]">
+              <Image
+                src="/RajisSaraF.Dev_Logo.png"
+                alt="RajisSaraF.Dev logo"
+                width={28}
+                height={28}
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
             <span className="text-xs text-[#A8B2D1] font-medium tracking-wide">
               <Typewriter />
             </span>

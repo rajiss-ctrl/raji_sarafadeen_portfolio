@@ -34,22 +34,22 @@ export const projects = [
     iconLists: ["/next.svg", "/tail.svg"],
     link: "https://trig8ltd-nextlevelfunding-fxg4z5xsi-rajiss-ctrl.vercel.app/",
   },
-  {
-    id: 6,
-    title: "OTBSolutions | IT Services",
-    des: "I help brands grow with OTB’s elevated IT services, building clean, high-performing websites, and tailored digital solutions.",
-    img: "/otb.png",
-    iconLists: ["/re.svg","/next.svg", "/tail.svg"],
-    link: "https://www.otbsolutions.co.uk",
-  },
-  {
-    id: 7,
-    title: "CFFX, Forex Trader",
-    des: "Built CFFX’s trading platform website—designed for clarity, trust, and user engagement. Showcasing strategies for GBPJPY & US30 to help traders achieve predictable profits.",
-    img: "/cffx.png",
-    iconLists: ["/re.svg", "/next.svg", "/tail.svg"],
-    link: "https://www.cffx.co.uk",
-  },
+  // {
+  //   id: 6,
+  //   title: "OTBSolutions | IT Services",
+  //   des: "I help brands grow with OTB’s elevated IT services, building clean, high-performing websites, and tailored digital solutions.",
+  //   img: "/otb.png",
+  //   iconLists: ["/re.svg","/next.svg", "/tail.svg"],
+  //   link: "https://www.otbsolutions.co.uk",
+  // },
+  // {
+  //   id: 7,
+  //   title: "CFFX, Forex Trader",
+  //   des: "Built CFFX’s trading platform website—designed for clarity, trust, and user engagement. Showcasing strategies for GBPJPY & US30 to help traders achieve predictable profits.",
+  //   img: "/cffx.png",
+  //   iconLists: ["/re.svg", "/next.svg", "/tail.svg"],
+  //   link: "https://www.cffx.co.uk",
+  // },
   
 ];
 
