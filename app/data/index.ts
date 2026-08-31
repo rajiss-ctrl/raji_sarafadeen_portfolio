@@ -2,6 +2,14 @@
 export const projects = [
   {
     id: 2,
+    title: "Skin Care E-Commerce shop",
+    des: "A modern, responsive skincare online store built with React and Node.js, featuring a secure Stripe payment gateway, user accounts, and an admin dashboard for product management.",
+    img: "/skcare.png",
+    iconLists: ["/re.svg","tail.svg"],
+    link: "https://skcare-app.vercel.app/",
+  },
+  {
+    id: 3,
     title: "Stock Management Web App",
     des: "A dynamic stock tracking dashboard that allows users to monitor real-time and prices, build personalized watchlists, and visualize performance trends.",
     img: "/stock.png",
@@ -10,22 +18,13 @@ export const projects = [
   },
   
     {
-      id: 3,
+      id: 4,
       title: "PCDF, Prince Child Development Foundation",
       des: "A responsive website for the Prince Child Development Foundation, designed to amplify their mission of supporting children's education, increase online donations, and attract volunteers through a clear and compelling narrative.",
       img: "/pcdf.png",
       iconLists: ["/re.svg", "/tail.svg"],
       link: "https://www.pcdfafrica.org",
     },
-    
-  {
-    id: 4,
-    title: "Skin Care E-Commerce shop",
-    des: "A modern, responsive skincare online store built with React and Node.js, featuring a secure Stripe payment gateway, user accounts, and an admin dashboard for product management.",
-    img: "/skcare.png",
-    iconLists: ["/re.svg","tail.svg"],
-    link: "https://skcare-app.vercel.app/",
-  },
     {
       id: 5,
     title: "Proprietory Firm",
